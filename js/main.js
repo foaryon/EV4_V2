@@ -195,6 +195,7 @@
         function loadAndShow() {
             if (cached) {
                 body.innerHTML = renderTable(cached);
+                initAdaptiveTables(body);
                 return;
             }
             body.innerHTML = '<p class="changelog-loading" aria-live="polite">Laden…</p>';
@@ -203,12 +204,14 @@
                 .then(function (data) {
                     cached = data;
                     body.innerHTML = renderTable(data);
+                    initAdaptiveTables(body);
                 })
                 .catch(function () {
                     var data = useFallbackData();
                     if (data) {
                         cached = data;
                         body.innerHTML = renderTable(data);
+                        initAdaptiveTables(body);
                     } else {
                         body.innerHTML = '<p class="changelog-loading">Changelog konnte nicht geladen werden. Bei Nutzung per Doppelklick (file://) bitte einen lokalen Webserver verwenden, z.&nbsp;B. <code>npx serve .</code> im Projektordner.</p>';
                     }
@@ -295,6 +298,46 @@
                 observer.observe(d, { attributes: true, attributeFilter: ['open'] });
             });
         } catch (e) { /* sessionStorage or JSON not available */ }
+    }
+
+    /**
+     * Adds header labels to table cells so CSS can stack rows on
+     * narrow viewports without losing context.
+     */
+    function initAdaptiveTables(root) {
+        var scope = root || document;
+        var tables = scope.querySelectorAll('.responsive-table-wrapper table');
+        if (!tables.length) return;
+
+        tables.forEach(function (table) {
+            if (table.classList.contains('table-profile-checklist')) return;
+
+            var headerCells = table.querySelectorAll('thead th');
+            if (!headerCells.length) return;
+
+            var headers = Array.from(headerCells).map(function (th) {
+                return th.textContent.replace(/\s+/g, ' ').trim();
+            });
+            if (!headers.length) return;
+
+            var bodyRows = table.querySelectorAll('tbody tr');
+            if (!bodyRows.length) return;
+
+            table.classList.add('table-mobile-cards');
+            var wrapper = table.closest('.responsive-table-wrapper');
+            if (wrapper) wrapper.classList.add('responsive-table-wrapper--stacked-cards');
+
+            bodyRows.forEach(function (row) {
+                var cells = row.querySelectorAll('th, td');
+                var headerIndex = 0;
+                cells.forEach(function (cell) {
+                    var label = headers[headerIndex] || headers[headers.length - 1] || 'Wert';
+                    cell.setAttribute('data-label', label);
+                    var span = parseInt(cell.getAttribute('colspan') || '1', 10);
+                    headerIndex += Number.isNaN(span) || span < 1 ? 1 : span;
+                });
+            });
+        });
     }
 
     function buildSearchIndex() {
@@ -725,6 +768,7 @@
 
     function run() {
         initPageNavClone();
+        initAdaptiveTables();
         initScrollSpy();
         initBackToTop();
         initScrollReveal();
