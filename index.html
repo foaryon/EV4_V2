@@ -71,7 +71,7 @@
       "totalTime": "PT30M",
       "step": [
         {"@type": "HowToStep", "name": "Fahrmodus (Drive Mode)", "text": "Standard: ECO, Regen: NORMAL, Winter: SNOW"},
-        {"@type": "HowToStep", "name": "Rekuperation", "text": "Standard: Level 2, Regen/Winter: Level 1"},
+        {"@type": "HowToStep", "name": "Rekuperation", "text": "Standard: Level 2, Regen: Level 1, Winter: Level 1 (Level 0 bei Eis/Glätte)"},
         {"@type": "HowToStep", "name": "i-PEDAL", "text": "Standard: EIN (nach Eingewöhnung), Regen/Winter: AUS"},
         {"@type": "HowToStep", "name": "Intelligente Energierückgewinnung", "text": "Standard: AUTO, Regen/Winter: Manuell Level 1"},
         {"@type": "HowToStep", "name": "SCC/ACC Abstand", "text": "Alle Profile: EIN, Abstand 4"},
@@ -376,7 +376,7 @@
                 <tr data-checklist-id="6"><td><strong>6. HDA (Autobahn-Fahrassistent)</strong></td><td>AUS</td><td>AUS</td><td>EIN (mit Vorsicht)</td></tr>
                 <tr data-checklist-id="7"><td><strong>7. Spurwechsel-Assistent</strong></td><td>–</td><td>–</td><td>–</td></tr>
                 <tr data-checklist-id="8"><td><strong>8. Spurhalteassistent (LKA) / Spurfolgeassistent (LFA)</strong></td><td>EIN (gut markierte Straßen)</td><td>EIN (gut markierte Straßen)</td><td>EIN (bei sichtbaren Markierungen)</td></tr>
-                <tr data-checklist-id="9"><td><strong>9. FCA (Kollisionswarnung / Notbremsung)</strong></td><td>EIN (alle Funktionen)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td></tr>
+                <tr data-checklist-id="9"><td><strong>9. FCA (Kollisionswarnung / Notbremsung)</strong></td><td>EIN (alle Funktionen)</td><td>EIN (Warnzeit: Standard, sofern verfügbar)</td><td>EIN (Warnzeit: Standard, sofern verfügbar)</td></tr>
                 <tr data-checklist-id="10"><td><strong>10. BCA Totwinkelsicherheit</strong></td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnzeit: Früh, sofern verfügbar)</td></tr>
                 <tr data-checklist-id="11"><td><strong>11. Klima</strong></td><td>AUTO 22°C, SYNC EIN, ECO EIN (bei 5-25°C)</td><td>AUTO 22°C, ECO EIN (bei 5-25°C), ECO AUS bei Beschlag/hoher Luftfeuchtigkeit</td><td>AUTO 22°C, Scheibenheizung EIN, Frischluft</td></tr>
                 <tr data-checklist-id="12"><td><strong>12. Beleuchtung</strong></td><td>AUTO, Fernlicht AUS oder ab 60 km/h</td><td>AUTO, Nebelscheinwerfer bei Starkregen/Nebel EIN, Fernlicht AUS (Reflexion)</td><td>AUTO, Nebelscheinwerfer bei Schnee/Nebel EIN, Fernlicht bei Schneefall AUS (Reflexion)</td></tr>
@@ -389,7 +389,7 @@
             </tbody>
         </table>
     </div>
-    <p class="helper-text helper-text--short" role="note">Quelle: KIA EV4 Bedienungsanleitung 2026. Validierung: <a href="docs/VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md" target="_blank" rel="noopener noreferrer" class="source-ref">VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md</a></p>
+    <p class="helper-text helper-text--short" role="note">Quelle: KIA EV4 Bedienungsanleitung 2026. Validierung: <a href="docs/VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md" target="_blank" rel="noopener noreferrer" class="source-ref">VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md</a>. FCA, HDA, NSCC, Batteriekonditionierung: ausstattungsabhängig (z. B. P6 DriveWise); Einstellungen nur anwenden, sofern verbaut.</p>
     <h4 id="checkliste-allgemein">Allgemeine Einstellungen (lt. Bedienungsanleitung)</h4>
     <div class="responsive-table-wrapper">
         <table aria-label="Allgemeine Einstellungen">
@@ -1470,21 +1470,21 @@
             <h3 id="fca">FCA - Forward Collision-Avoidance Assist (Frontkollisionswarnung)</h3>
     
     <h4>Einstellungsname</h4>
-    <p><strong>Frontalkollisions-Vermeidungsassistent</strong> (Einstellungen → Fahrzeug → Fahrerassistenz → Fahrsicherheit → Sicherheit vorne)</p>
+    <p><strong>Frontalkollisions-Vermeidungsassistent</strong> (Einstellungen → Fahrzeug → Fahrerassistenz → Fahrsicherheit → Kollisionsvermeidung in Fahrtrichtung)</p>
 
     <h4>Klassifikation</h4>
     <p><span class="badge badge-a">A</span> Handbuch S. 502-532 (FCA Sensor-Fusion)</p>
 
-    <h4>Optionen (laut Handbuch S. 502-532)</h4>
+    <h4>Optionen (laut Handbuch S. 510)</h4>
     <ul>
-        <li><strong>Kollisionswarnung:</strong> Aus / Früh / Normal / Spät (Warnzeit, Handbuch S. 502-532)</li>
+        <li><strong>Warnzeitpunkt Kollisionssicherheit in Fahrtrichtung:</strong> Standard / Verzögert (bzw. Später; Handbuch S. 510; ownersmanual.kia.com: Standard / Später; EN: Standard / Late). Standard = frühere Warnung, Verzögert/Später = spätere Warnung.</li>
         <li><strong>Notbremsung:</strong> EIN/AUS (automatisches Abbremsen bei Kollisionsgefahr)</li>
         <li><strong>Kreuzungs-Kollisionsvermeidung:</strong> EIN/AUS (Kreuzungen, abbiegende Fahrzeuge)</li>
         <li><strong>Fahrspurwechsel bei Gegenverkehr:</strong> EIN/AUS</li>
         <li><strong>Seitlicher Spurwechsel:</strong> EIN/AUS</li>
         <li><strong>Notlenkung:</strong> EIN/AUS (Fahrerlenkunterstützung + Ausweichlenkunterstützung)</li>
     </ul>
-    <p><strong>Handbuch:</strong> Einstellungen → Fahrzeug → Fahrerassistenz → Fahrsicherheit → Sicherheit vorne (Frontalkollisions-Vermeidungsassistent) (Handbuch S. 502-532).</p>
+    <p><strong>Handbuch:</strong> Einstellungen → Fahrzeug → Fahrerassistenz → Fahrsicherheit → Kollisionsvermeidung in Fahrtrichtung (Frontalkollisions-Vermeidungsassistent) (Handbuch S. 502-532).</p>
 
     <details class="justification-collapsible" aria-label="Technische Funktion und Systeminteraktionen">
         <summary class="justification-summary">⚙ Technische Funktion &amp; Systeminteraktionen (aufklappen)</summary>
@@ -1509,7 +1509,7 @@
     <div class="responsive-table-wrapper">
         <table aria-label="Auswirkungsanalyse FCA">
             <thead>
-                <tr><th scope="col">Dimension</th><th scope="col">Spät</th><th scope="col">Normal</th></tr>
+                <tr><th scope="col">Dimension</th><th scope="col">Verzögert</th><th scope="col">Standard</th></tr>
             </thead>
             <tbody>
                 <tr><td>Safety</td><td>± (weniger Warnungen, höheres Risiko)</td><td>++ (optimale Balance)</td></tr>
@@ -1528,8 +1528,8 @@
     <div class="recommended-box">
         <h4>✓ Optimale Einstellungen</h4>
         <ul>
-            <li><strong>Standard:</strong> Kollisionswarnung = Normal, Notbremsung = EIN, alle Systeme = EIN</li>
-            <li><strong>Regen/Winter:</strong> Kollisionswarnung = Früh (sofern verfügbar), Notbremsung = EIN, alle Systeme = EIN</li>
+            <li><strong>Standard:</strong> Warnzeit = Standard (Handbuch), Notbremsung = EIN, alle Systeme = EIN</li>
+            <li><strong>Regen/Winter:</strong> Warnzeit = Standard (frühere Warnung als Verzögert; Handbuch S. 510), Notbremsung = EIN, alle Systeme = EIN</li>
         </ul>
     </div>
 
@@ -1544,7 +1544,7 @@
         <li><strong>Notlenkung:</strong> Kann schwere Unfälle durch Ausweichen verhindern</li>
         <li><strong>Kreuzungen:</strong> 25% aller Unfälle an Kreuzungen (System greift ein)</li>
     </ol>
-    <p><strong>Empfindlichkeit:</strong> Standard = Normal (Balance). Regen/Winter = Früh (sofern verfügbar) – längerer Bremsweg auf Nässe/Glätte erfordert frühere Warnung. "Spät" nur für sehr defensive Fahrer (erhöhtes Restrisiko).</p>
+    <p><strong>Empfindlichkeit:</strong> Standard = Standard (Handbuch, Balance). Regen/Winter = Standard (nicht Verzögert) – längerer Bremsweg auf Nässe/Glätte erfordert frühere Warnung. „Verzögert“ nur für sehr defensive Fahrer (erhöhtes Restrisiko).</p>
     <p><strong>WARNUNG:</strong> System kann NICHT alle Kollisionen verhindern! Immer bremsbereit bleiben. Bei &lt;100m Sicht (Nebel/Regen) reduzierte Funktion.</p>
                 </div>
             </details>
@@ -1925,8 +1925,8 @@
     <ul>
         <li><strong>BMS (Battery Management System):</strong> Überwacht Zellspannung, Temperatur, SOC</li>
         <li><strong>HV-Batterie:</strong> 81,4 kWh nominal, 77-79 kWh nutzbar (Puffer 2-4 kWh)</li>
-        <li><strong>Ladekurve AC:</strong> Konstant 11 kW (3-phasig, 16A) bis 100%</li>
-        <li><strong>Ladekurve DC:</strong> 0-10% = 50 kW, 10-50% = 235 kW (Peak), 50-80% = 150 kW, 80-100% = 50 kW (Tapering)</li>
+        <li><strong>Ladekurve AC:</strong> Konstant 10,5 kW (3-phasig, evspecifications) bis 100%</li>
+        <li><strong>Ladekurve DC:</strong> 0-10% ≈ 50 kW, 10-80% bis 127 kW (EV4 max., evspecifications), 80-100% Tapering (Handbuch, evspecifications)</li>
         <li><strong>Batteriekonditionierung:</strong> Automatisches Vorheizen bei DC-Laden (Navigation Ziel = DC-Station)</li>
         <li><strong>Temperatur-Optimum:</strong> 20-35°C (maximale Ladeleistung), &lt;0°C = 50% reduziert, &lt;-10°C = 30% reduziert</li>
         <li><strong>Lebensdauer-Einfluss:</strong> 100% SOC = Stress (Zellspannung 4,2V), 80% SOC = schonend (4,0V)</li>
@@ -2007,7 +2007,7 @@
         <li><strong>Manuell:</strong> Manuelles Aktivieren (EV-Menü → Batteriezustandsmodus)</li>
         <li><strong>Remote:</strong> Per App (30 min Vorlaufzeit)</li>
     </ul>
-    <p><strong>Handbuch:</strong> Batteriezustandsmodus – EV-Menü → EV-Einstellungen (Handbuch S. 31).</p>
+    <p><strong>Handbuch:</strong> Batteriezustandsmodus – EV-Menü → EV-Einstellungen (Handbuch S. 31). <em>Ausstattungsabhängig:</em> Nicht alle EV4-Varianten haben Batteriekonditionierung; bei Zweifel Handbuch oder Händler prüfen.</p>
 
     <details class="justification-collapsible" aria-label="Technische Funktion und Systeminteraktionen">
         <summary class="justification-summary">⚙ Technische Funktion &amp; Systeminteraktionen (aufklappen)</summary>
@@ -2015,7 +2015,7 @@
     <ul>
         <li><strong>Heizung:</strong> PTC-Heizer (2-5 kW) heizt Batterie auf 20-25°C (Optimum DC-Laden)</li>
         <li><strong>Navigation-Integration:</strong> Berechnet Ankunftszeit, startet Heizung automatisch</li>
-        <li><strong>Temperatur-Ziel:</strong> 20-25°C (maximale DC-Ladeleistung 235 kW)</li>
+        <li><strong>Temperatur-Ziel:</strong> 20-25°C (maximale DC-Ladeleistung 127 kW, EV4 Earth)</li>
         <li><strong>Reichweiten-Einfluss:</strong> 5-15 km Verbrauch (je nach Außentemperatur)</li>
         <li><strong>Zeit:</strong> 10-30 min (abhängig von Ausgangstemperatur)</li>
         <li><strong>Kontrollleuchte:</strong> Batterie-Symbol im Display während Konditionierung</li>
@@ -2059,7 +2059,7 @@
                 <div class="justification-content">
                 <p><strong>Batterie-Konditionierung AUTO empfohlen</strong>, weil:</p>
     <ol>
-        <li><strong>Ladegeschwindigkeit:</strong> Bei 0°C: 50 kW max., bei 25°C: 235 kW (470% Unterschied!)</li>
+        <li><strong>Ladegeschwindigkeit:</strong> Bei 0°C: 50 kW max., bei 25°C: bis 127 kW (EV4 max.; ohne Konditionierung deutlich langsamer)</li>
         <li><strong>Zeitersparnis:</strong> 10-80% bei -10°C ohne Konditionierung = 50 min, mit Konditionierung = 18 min</li>
         <li><strong>Navigation-Integration:</strong> Automatisch, keine manuelle Steuerung nötig</li>
         <li><strong>Batteriegesundheit:</strong> Laden bei optimaler Temperatur = weniger Stress</li>
@@ -2362,7 +2362,7 @@
 </aside>
 </main>
 
-    <script type="application/json" id="changelog-data">[{"version":"v2.4.0","date":"Januar 2026","changes":"Quellen validiert (docs/QUELLEN_VALIDIERUNG.md); neue Sektion Quellen und technische Daten (#quellen); data/sources.json; Methodik-Tabelle erweitert; Inline-Quellenbox Batterie (evspecifications); CSS quellen-section, source-inline-box; Nav/TOC/Sidebar um Quellen-Link ergänzt."},{"version":"v2.3.0","date":"Januar 2026","changes":"<strong>500-Plan Phase 8:</strong> Audit-Kommentar für Design-Tokens in <code>:root</code>; Breadcrumb in allen 9 Detail-Sektionen (Detail &gt; 1.–9.); ADAS-Schnellzugriff mit Mini-Liste (SCC, HDA, LKA, FCA, BCA) und IDs an Unterüberschriften; CSS für <code>.section-quick-nav</code>."},{"version":"v2.2.0","date":"Januar 2026","changes":"<strong>Design-Modernisierung (66 Iterationen):</strong> Design-Tokens Single Source of Truth; Breakpoints in allen Media Queries dokumentiert; Hamburger-Menü mit Fokus und Escape/Backdrop; TOC-Intro gekürzt, aria-describedby; Breadcrumb und Keyboard-Hinweis im Footer; TOC-Karten Hover-Lift, Profile-Cards Streifen, Recommended-Box Abstand; details/summary Animation (reduced-motion); Zeile Ladegrenze hervorgehoben; Link Ende Methodik; Fokusfalle Suche, Changelog Fokus-Rückkehr; Print: Sidebar/Hamburger ausgeblendet; Table focus-visible; README Design-Tokens und Breakpoints."},{"version":"v2.1.2","date":"Januar 2026","changes":"Heuristischer Audit (100+ Szenarien): Sprungziel-Highlight auch bei Klick auf „Empf. Einstellungen“ (<code>section:has(#profile-checklist:target)</code>); Tabellen auf schmalen Viewports horizontal scrollbar belassen (Konflikt <code>table-layout</code> in zweiter 768px-Regel behoben)."},{"version":"v2.1.1","date":"Januar 2026","changes":"Audit: <code>scope=\"col\"</code> an allen Tabellen-<code>th</code> ergänzt (Barrierefreiheit); Inline-Style im Changelog in Klasse <code>ul.changelog-td</code> ausgelagert."},{"version":"v2.1.0","date":"Januar 2026","changes":"<strong>Design-Update 2026:</strong> Erweiterte Design-Tokens (Schatten, Easing, Radius); Seitenhintergrund mit Gradient und dezenten Akzent-Orbs; Nav mit Glassmorphism (backdrop-filter); Hero-Strip mit Tagline; TOC/Sektionen/Profile-Cards mit Premium-Look (größere Radien, linke Akzentlinie, stärkere Schatten); Tabellen mit Gradient-Header und sanften Hover-Übergängen; Footer mit Gradient und Akzentlinie; Smooth Scroll + <code>scroll-padding</code>; Fokus-Styles (<code>focus-visible</code>) für Barrierefreiheit; <code>:target</code>-Highlight beim Anspringen; Dark Mode angepasst; <code>prefers-reduced-motion</code> berücksichtigt; Print-Styles optimiert; Meta <code>theme-color</code> und <code>description</code>."},{"version":"v2.0.2","date":"Januar 2026","changes":"Bereinigung: ungenutzte ID <code>recommended-summary</code> und Klasse <code>profile-matrix</code> entfernt; historischer HTML-Kommentar (Kurzansicht-Karten) entfernt – nur Essenzielles behalten."},{"version":"v2.0.1","date":"Januar 2026","changes":"Konsistenz: <strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> in allen verbleibenden Unterabschnitten einklappbar gemacht (Batterie: Ladegrenze &amp; Ladestrom, Batteriekonditionierung; Navigation: NSCC; Personalisierung: Benutzerprofile, Auto Hold)."},{"version":"v2.0","date":"Januar 2026","changes":["Kurzansicht-Karten entfernt; eine <strong>Vollständige Einstellungsliste</strong> (Checkliste) als zentrale Übersicht.","<strong>Begründungen</strong> pro Einstellung durchgehend einklappbar (<code>details/summary</code>).","<strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> pro Einstellung einklappbar – Kerninfos (Optionen, ✓ Optimale Einstellungen) im Vordergrund.","HTML-Struktur bereinigt (Schließ-Tags <code>details</code> in richtige Sektionen verschoben).","Nav und TOC vereinfacht (ein Eintrag „Empf. Einstellungen“ / Checkliste).","Section-Intro am Anfang von „Drive Mode“ entfernt (Handbuch-Hinweis in Methodik/Footer).","<strong>Changelog-Sektion</strong> ergänzt; Titel ohne Versions-Suffix (Versionsinfo hier)."]},{"version":"v1.x","date":"–","changes":"Initiale Version; forensische Validierung gegen Bedienungsanleitung; 3 Fahrprofile, 9 Detailabschnitte, Evidenzhierarchie."}]</script>
+    <script type="application/json" id="changelog-data">[{"version":"v2.5.0","date":"Februar 2026","changes":"<strong>Deep Scan Profil:</strong> FCA-Terminologie an EV4-Handbuch angepasst (Standard/Verzögert); Menüpfad Kollisionsvermeidung in Fahrtrichtung; DC 127 kW (EV4 max.); AC 10,5 kW; Schema.org Reku Winter Level 0 bei Eis; Hinweis ausstattungsabhängig; docs/DEEP_SCAN_PROFILE_2026.md."},{"version":"v2.4.0","date":"Januar 2026","changes":"Quellen validiert (docs/QUELLEN_VALIDIERUNG.md); neue Sektion Quellen und technische Daten (#quellen); data/sources.json; Methodik-Tabelle erweitert; Inline-Quellenbox Batterie (evspecifications); CSS quellen-section, source-inline-box; Nav/TOC/Sidebar um Quellen-Link ergänzt."},{"version":"v2.3.0","date":"Januar 2026","changes":"<strong>500-Plan Phase 8:</strong> Audit-Kommentar für Design-Tokens in <code>:root</code>; Breadcrumb in allen 9 Detail-Sektionen (Detail &gt; 1.–9.); ADAS-Schnellzugriff mit Mini-Liste (SCC, HDA, LKA, FCA, BCA) und IDs an Unterüberschriften; CSS für <code>.section-quick-nav</code>."},{"version":"v2.2.0","date":"Januar 2026","changes":"<strong>Design-Modernisierung (66 Iterationen):</strong> Design-Tokens Single Source of Truth; Breakpoints in allen Media Queries dokumentiert; Hamburger-Menü mit Fokus und Escape/Backdrop; TOC-Intro gekürzt, aria-describedby; Breadcrumb und Keyboard-Hinweis im Footer; TOC-Karten Hover-Lift, Profile-Cards Streifen, Recommended-Box Abstand; details/summary Animation (reduced-motion); Zeile Ladegrenze hervorgehoben; Link Ende Methodik; Fokusfalle Suche, Changelog Fokus-Rückkehr; Print: Sidebar/Hamburger ausgeblendet; Table focus-visible; README Design-Tokens und Breakpoints."},{"version":"v2.1.2","date":"Januar 2026","changes":"Heuristischer Audit (100+ Szenarien): Sprungziel-Highlight auch bei Klick auf „Empf. Einstellungen“ (<code>section:has(#profile-checklist:target)</code>); Tabellen auf schmalen Viewports horizontal scrollbar belassen (Konflikt <code>table-layout</code> in zweiter 768px-Regel behoben)."},{"version":"v2.1.1","date":"Januar 2026","changes":"Audit: <code>scope=\"col\"</code> an allen Tabellen-<code>th</code> ergänzt (Barrierefreiheit); Inline-Style im Changelog in Klasse <code>ul.changelog-td</code> ausgelagert."},{"version":"v2.1.0","date":"Januar 2026","changes":"<strong>Design-Update 2026:</strong> Erweiterte Design-Tokens (Schatten, Easing, Radius); Seitenhintergrund mit Gradient und dezenten Akzent-Orbs; Nav mit Glassmorphism (backdrop-filter); Hero-Strip mit Tagline; TOC/Sektionen/Profile-Cards mit Premium-Look (größere Radien, linke Akzentlinie, stärkere Schatten); Tabellen mit Gradient-Header und sanften Hover-Übergängen; Footer mit Gradient und Akzentlinie; Smooth Scroll + <code>scroll-padding</code>; Fokus-Styles (<code>focus-visible</code>) für Barrierefreiheit; <code>:target</code>-Highlight beim Anspringen; Dark Mode angepasst; <code>prefers-reduced-motion</code> berücksichtigt; Print-Styles optimiert; Meta <code>theme-color</code> und <code>description</code>."},{"version":"v2.0.2","date":"Januar 2026","changes":"Bereinigung: ungenutzte ID <code>recommended-summary</code> und Klasse <code>profile-matrix</code> entfernt; historischer HTML-Kommentar (Kurzansicht-Karten) entfernt – nur Essenzielles behalten."},{"version":"v2.0.1","date":"Januar 2026","changes":"Konsistenz: <strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> in allen verbleibenden Unterabschnitten einklappbar gemacht (Batterie: Ladegrenze &amp; Ladestrom, Batteriekonditionierung; Navigation: NSCC; Personalisierung: Benutzerprofile, Auto Hold)."},{"version":"v2.0","date":"Januar 2026","changes":["Kurzansicht-Karten entfernt; eine <strong>Vollständige Einstellungsliste</strong> (Checkliste) als zentrale Übersicht.","<strong>Begründungen</strong> pro Einstellung durchgehend einklappbar (<code>details/summary</code>).","<strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> pro Einstellung einklappbar – Kerninfos (Optionen, ✓ Optimale Einstellungen) im Vordergrund.","HTML-Struktur bereinigt (Schließ-Tags <code>details</code> in richtige Sektionen verschoben).","Nav und TOC vereinfacht (ein Eintrag „Empf. Einstellungen“ / Checkliste).","Section-Intro am Anfang von „Drive Mode“ entfernt (Handbuch-Hinweis in Methodik/Footer).","<strong>Changelog-Sektion</strong> ergänzt; Titel ohne Versions-Suffix (Versionsinfo hier)."]},{"version":"v1.x","date":"–","changes":"Initiale Version; forensische Validierung gegen Bedienungsanleitung; 3 Fahrprofile, 9 Detailabschnitte, Evidenzhierarchie."}]</script>
     <script src="js/main.js" defer></script>
 </body>
 </html>

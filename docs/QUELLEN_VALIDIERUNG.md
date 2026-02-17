@@ -37,3 +37,15 @@ Systematische Prüfung der in [QUELLEN_DEEP_DIVE.md](QUELLEN_DEEP_DIVE.md) genan
 - **Geprüft (Abruf):** 19+ URLs; **19 × 200**, **1 × Timeout** (press.kia.com). Projekt referenziert ausschließlich **EV4 Hatchback (Schrägheck)**.
 - **Ohne direkten URL / nicht abgerufen:** KIA Spec Sheet PDF, Rescue Sheet EV4 Einzel-PDF, UNECE/EUR-Lex konkrete Docs.
 - **Empfehlung:** press.kia.com bei Bedarf manuell prüfen; für Integration nur validierte bzw. stichprobengeprüfte Quellen verwenden.
+
+---
+
+## Stichprobe Online-Check (Februar 2026)
+
+| Quelle | Inhalt geprüft |
+|--------|----------------|
+| KIA EU Presales | 10–80 % DC 29–31 min, 630 km WLTP bestätigt |
+| ownersmanual.kia.com (DE) | FCA: Standard / Später (synonym zu Verzögert) |
+| ownersmanual.kia.com (EN) | Forward safety: Standard / Late |
+| ADAC EV4 Earth 341448 | 81,4 kWh, 150 kW, 7,7 s, 170 km/h bestätigt |
+| evspecifications.com | Captcha blockiert Abruf (Stand Feb 2026) |
