@@ -731,7 +731,6 @@
         var printBtn = document.getElementById('checklist-print');
         var qrBtn = document.getElementById('checklist-qr');
         var qrModal = document.getElementById('checklist-qr-modal');
-        var qrCanvas = document.getElementById('checklist-qr-canvas');
         var STORAGE_KEY = 'ev4-checklist-done';
 
         if (!table || !actions) return;
@@ -798,25 +797,77 @@
         }
         var qrOutput = document.getElementById('checklist-qr-output');
         if (qrBtn && qrModal && qrOutput) {
+            function getQrUrl() {
+                var canonical = document.querySelector('link[rel="canonical"]');
+                var base = (canonical && canonical.href && canonical.href.indexOf('example.com') === -1)
+                    ? canonical.href.replace(/#.*$/, '')
+                    : location.href.split('#')[0];
+                return base + '#empfohlene-einstellungen';
+            }
             qrBtn.addEventListener('click', function () {
-                var url = location.href.split('#')[0] + '#empfohlene-einstellungen';
+                var url = getQrUrl();
+                var isFile = location.protocol === 'file:';
+                var isLocalhost = /^(localhost|127\.0\.0\.1|::1)(:\d+)?$/i.test(location.hostname);
                 qrModal.removeAttribute('hidden');
                 qrModal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('checklist-qr-open');
                 qrOutput.innerHTML = '';
+                var closeBtn = qrModal.querySelector('.btn-checklist-qr-close');
+                if (closeBtn) closeBtn.focus();
+                if (isFile) {
+                    var p1 = document.createElement('p');
+                    p1.className = 'checklist-qr-error';
+                    p1.textContent = 'QR-Code funktioniert am besten, wenn die Seite über das Internet (https://) aufgerufen wird. Aktuell: Datei lokal geöffnet.';
+                    var p2 = document.createElement('p');
+                    p2.className = 'checklist-qr-url';
+                    var code = document.createElement('code');
+                    code.textContent = url;
+                    p2.appendChild(code);
+                    qrOutput.appendChild(p1);
+                    qrOutput.appendChild(p2);
+                    return;
+                }
+                if (isLocalhost) {
+                    var hint = document.createElement('p');
+                    hint.className = 'checklist-qr-hint';
+                    hint.textContent = 'Hinweis: localhost-URL – beim Scannen mit dem Handy muss die gleiche Adresse im Netzwerk erreichbar sein.';
+                    qrOutput.appendChild(hint);
+                }
                 var img = document.createElement('img');
-                img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
                 img.alt = 'QR-Code für Checkliste';
-                img.width = 200;
-                img.height = 200;
+                img.width = 300;
+                img.height = 300;
+                img.loading = 'eager';
                 qrOutput.appendChild(img);
+                var apiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&ecc=H&margin=2&data=' + encodeURIComponent(url);
+                img.src = apiUrl;
+                img.onerror = function () {
+                    img.style.display = 'none';
+                    var err = document.createElement('p');
+                    err.className = 'checklist-qr-error';
+                    err.textContent = 'QR-Bild konnte nicht geladen werden (Netzwerk oder API nicht erreichbar). URL zum manuellen Öffnen:';
+                    var codeWrap = document.createElement('p');
+                    codeWrap.className = 'checklist-qr-url';
+                    var codeEl = document.createElement('code');
+                    codeEl.textContent = url;
+                    codeWrap.appendChild(codeEl);
+                    qrOutput.appendChild(err);
+                    qrOutput.appendChild(codeWrap);
+                };
             });
+            function closeQrModal() {
+                qrModal.setAttribute('hidden', '');
+                qrModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('checklist-qr-open');
+                qrBtn.focus();
+            }
             qrModal.querySelectorAll('[data-action="close-qr"]').forEach(function (el) {
-                el.addEventListener('click', function () {
-                    qrModal.setAttribute('hidden', '');
-                    qrModal.setAttribute('aria-hidden', 'true');
-                    document.body.classList.remove('checklist-qr-open');
-                });
+                el.addEventListener('click', closeQrModal);
+            });
+            document.addEventListener('keydown', function onQrEscape(e) {
+                if (e.key === 'Escape' && qrModal.getAttribute('aria-hidden') === 'false') {
+                    closeQrModal();
+                }
             });
         }
     }

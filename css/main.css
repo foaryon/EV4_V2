@@ -3136,6 +3136,27 @@ body.lightbox-open { overflow: hidden; touch-action: none; }
     margin: 0 auto;
     border-radius: var(--radius-md);
 }
+.checklist-qr-error {
+    color: var(--text-error, #b91c1c);
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-2);
+}
+.checklist-qr-hint {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-2);
+}
+.checklist-qr-url {
+    margin: 0;
+    font-size: var(--text-xs, 0.75rem);
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+.checklist-qr-url code {
+    background: var(--surface-muted, #f1f5f9);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm, 4px);
+}
 body.checklist-qr-open { overflow: hidden; }
 .btn-checklist-qr-close {
     padding: var(--space-2) var(--space-4);
