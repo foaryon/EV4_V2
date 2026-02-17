@@ -5,7 +5,7 @@
     --touch-target-min: 44px;
 
     /* Fluid Layout – skaliert automatisch mit Viewport (clamp(min, preferred, max)) */
-    --container-gutter: clamp(0.75rem, 1.5rem + 1vw, 2.5rem);
+    --container-gutter: clamp(0.5rem, 1vw + 0.75rem, 2.5rem);
     --section-padding: clamp(1.5rem, 2rem + 2.5vw, 5rem);
     --section-gap: clamp(1.5rem, 2rem + 2.5vw, 5rem);
     --scroll-padding-top: clamp(5.5rem, 5rem + 8vw, 7rem);
@@ -105,8 +105,8 @@
     --duration-normal: 0.25s;
     --duration-slow: 0.4s;
 
-    /* Layout – fluid container (skaliert 1440–1560px mit Viewport) */
-    --container-max: clamp(1440px, 90vw, 1560px);
+    /* Layout – fluid container: width 100% + max 1560px = fluid on all devices */
+    --container-max: 1560px;
 }
 
 * {
@@ -693,12 +693,9 @@ main.container,
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-/* Hero: Hintergrund-Position fluid – schmaler Container fokussiert oberen Bereich (30%), breiter Mitte (35%) */
+/* Hero: fluid CTAs stack on narrow viewports */
 @container hero (max-width: 48rem) {
     .page-hero { background-position: center 30%; }
-    .page-hero-title,
-    .page-hero-tagline { white-space: normal; overflow-wrap: break-word; }
-    .page-hero-title { hyphens: auto; }
     .page-hero-ctas { flex-direction: column; width: 100%; max-width: 20rem; margin-inline: auto; }
     .page-hero-ctas .btn-primary,
     .page-hero-ctas .btn-secondary { width: 100%; }
@@ -706,9 +703,6 @@ main.container,
 @supports not (container-type: inline-size) {
     @media (max-width: 48rem) {
         .page-hero { background-position: center 30%; }
-        .page-hero-title,
-        .page-hero-tagline { white-space: normal; overflow-wrap: break-word; }
-        .page-hero-title { hyphens: auto; }
         .page-hero-ctas { flex-direction: column; width: 100%; max-width: 20rem; margin-inline: auto; }
         .page-hero-ctas .btn-primary,
         .page-hero-ctas .btn-secondary { width: 100%; }
@@ -743,7 +737,10 @@ main.container,
     margin: 0 auto var(--space-2);
     text-align: center;
     max-width: min(90vw, 36rem);
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 0, 0, 0.25);
 }
 .page-hero-tagline {
@@ -756,7 +753,9 @@ main.container,
     margin: 0 auto;
     text-align: center;
     max-width: min(90vw, 32rem);
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 .page-hero-tagline strong { color: rgba(250, 250, 250, 0.95); font-weight: var(--weight-semibold); }
@@ -921,13 +920,14 @@ main.container,
 /* Alle Ankerziele in main: korrekte Position unter Sticky-Nav */
 main [id] { scroll-margin-top: var(--scroll-padding-top); }
 
-/* Images – bulletproof responsive */
-.layout-root img:not([width]):not([height]),
-main img:not([width]):not([height]),
-section img:not([width]):not([height]) {
+/* Images – bulletproof responsive on all devices */
+.layout-root img,
+main img,
+section img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    vertical-align: middle;
 }
 
 /* Table of Contents – Wix-style: weiß, 10px Radius, Wix-Shadow */
@@ -2326,6 +2326,14 @@ section p {
     line-height: var(--leading-loose);
     margin-bottom: var(--space-2);
 }
+/* Code/pre – fluid wrap on narrow viewports */
+code, pre {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+pre { overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: pre-wrap; word-wrap: break-word; }
+
 ul, ol { margin-left: var(--space-3); margin-bottom: var(--space-2); }
 section ul li, section ol li {
     font-size: var(--text-base);
@@ -2484,11 +2492,18 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
     nav .nav-links a,
     nav .nav-links .nav-search-trigger { width: 100%; min-height: var(--touch-target-min); }
     .toc-grid { grid-template-columns: 1fr; }
-    .responsive-table-wrapper { overflow-x: auto; }
+    .responsive-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     table { font-size: var(--text-sm); }
-    th, td { word-break: break-word; }
+    th, td { word-break: break-word; overflow-wrap: break-word; }
     th { font-size: var(--text-xs); }
-    .hero-stats-inner { gap: var(--fluid-gap-lg); padding-inline: 0; }
+    .hero-stats-inner { gap: var(--fluid-gap-lg); padding-inline: 0; grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --bp-xs: Extra small devices (portrait phones < 360px) */
+@media (max-width: 359px) {
+    .hero-stats-inner { grid-template-columns: 1fr; }
+    .page-hero { padding: clamp(var(--space-4), 6vw, var(--space-6)) var(--container-gutter); min-height: 80vh; min-height: 80dvh; }
+    .page-hero-title { font-size: clamp(1.25rem, 5vw + 1rem, 1.75rem); }
 }
 
 /* Print: Wix-Level – keine Nav/Drawer/Sidebar, lesbare Sektionen */
