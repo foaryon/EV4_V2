@@ -62,6 +62,34 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "KIA EV4 2026 – Optimale Einstellungen konfigurieren",
+      "description": "Schritt-für-Schritt-Anleitung zur Konfiguration der 18 empfohlenen Einstellungen für Standard-, Regen- und Winterprofil.",
+      "totalTime": "PT30M",
+      "step": [
+        {"@type": "HowToStep", "name": "Fahrmodus (Drive Mode)", "text": "Standard: ECO, Regen: NORMAL, Winter: SNOW"},
+        {"@type": "HowToStep", "name": "Rekuperation", "text": "Standard: Level 2, Regen/Winter: Level 1"},
+        {"@type": "HowToStep", "name": "i-PEDAL", "text": "Standard: EIN (nach Eingewöhnung), Regen/Winter: AUS"},
+        {"@type": "HowToStep", "name": "Intelligente Energierückgewinnung", "text": "Standard: AUTO, Regen/Winter: Manuell Level 1"},
+        {"@type": "HowToStep", "name": "SCC/ACC Abstand", "text": "Alle Profile: EIN, Abstand 4"},
+        {"@type": "HowToStep", "name": "HDA", "text": "Standard/Regen: AUS, Winter: EIN (mit Vorsicht)"},
+        {"@type": "HowToStep", "name": "Spurhalteassistent (LKA/LFA)", "text": "Alle: EIN bei gut markierten Straßen"},
+        {"@type": "HowToStep", "name": "FCA Kollisionswarnung", "text": "Alle: EIN"},
+        {"@type": "HowToStep", "name": "BCA Totwinkelsicherheit", "text": "Alle: EIN"},
+        {"@type": "HowToStep", "name": "Klima", "text": "AUTO 22°C, ECO je nach Außentemperatur"},
+        {"@type": "HowToStep", "name": "Beleuchtung", "text": "AUTO, Nebelscheinwerfer bei Bedarf"},
+        {"@type": "HowToStep", "name": "Parksensoren / Rückfahrkamera", "text": "EIN / AUTO"},
+        {"@type": "HowToStep", "name": "Ziel-Ladezustand", "text": "Standard/Regen: 80%, Winter: 90%"},
+        {"@type": "HowToStep", "name": "Batteriekonditionierung", "text": "Standard/Regen: AUS, Winter: MANUELL vor DC-Laden"},
+        {"@type": "HowToStep", "name": "NSCC", "text": "Standard/Regen: AUS, Winter: EIN"},
+        {"@type": "HowToStep", "name": "Auto Hold", "text": "Alle: EIN"},
+        {"@type": "HowToStep", "name": "ESC / VSM / HAC / DBC", "text": "Alle: EIN (niemals ausschalten)"}
+      ]
+    }
+    </script>
 </head>
 <body class="layout-root">
 
@@ -306,6 +334,23 @@
 
     <h3 id="checkliste-uebersicht">Erstkauf-Checkliste</h3>
     <h4 id="profile-checklist">Profil-Checkliste (18 Einstellungen × 3 Szenarien)</h4>
+    <div class="checklist-actions" id="checklist-actions" role="region" aria-label="Checklist-Aktionen" hidden>
+        <span class="checklist-progress" id="checklist-progress" aria-live="polite"></span>
+        <div class="checklist-buttons">
+            <button type="button" class="btn-checklist-reset" id="checklist-reset" aria-label="Fortschritt zurücksetzen">Zurücksetzen</button>
+            <a href="#empfohlene-einstellungen" class="btn-checklist-print" id="checklist-print" aria-label="Checkliste drucken">Drucken</a>
+            <button type="button" class="btn-checklist-qr" id="checklist-qr" aria-label="QR-Code für Checkliste anzeigen">QR-Code</button>
+        </div>
+    </div>
+    <div id="checklist-qr-modal" class="checklist-qr-modal" role="dialog" aria-modal="true" aria-labelledby="checklist-qr-title" aria-hidden="true" hidden>
+        <div class="checklist-qr-backdrop" data-action="close-qr"></div>
+        <div class="checklist-qr-inner">
+            <h3 id="checklist-qr-title">QR-Code – In-Car-Zugriff</h3>
+            <p>Scannen Sie den Code, um die Checkliste auf Ihrem Smartphone zu öffnen.</p>
+            <div id="checklist-qr-output" class="checklist-qr-output" aria-hidden="true"></div>
+            <button type="button" class="btn-checklist-qr-close" data-action="close-qr" aria-label="Schließen">Schließen</button>
+        </div>
+    </div>
     <div class="responsive-table-wrapper responsive-table-wrapper--profile-checklist">
         <table class="table-profile-checklist" aria-labelledby="profile-checklist">
             <colgroup>
@@ -323,24 +368,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td><strong>1. Fahrmodus (Drive Mode)</strong></td><td>ECO</td><td>NORMAL</td><td>SNOW</td></tr>
-                <tr><td><strong>2. Rekuperation (Schaltwippe)</strong></td><td>Level 2</td><td>Level 1</td><td>Level 1 (Level 0 bei Eis/Glätte)</td></tr>
-                <tr><td><strong>3. i-PEDAL</strong></td><td>EIN (nach Eingewöhnung)</td><td>AUS</td><td>AUS (zu riskant)</td></tr>
-                <tr><td><strong>4. Intelligente Energierückgewinnung</strong></td><td>AUTO</td><td>Manuell Level 1</td><td>Manuell Level 1 (KEIN AUTO)</td></tr>
-                <tr><td><strong>5. SCC/ACC Abstand</strong></td><td>EIN (nur Überland), Abstand 4</td><td>EIN, Abstand 4 (Maximum)</td><td>EIN, Abstand 4 (Maximum)</td></tr>
-                <tr><td><strong>6. HDA (Autobahn-Fahrassistent)</strong></td><td>AUS</td><td>AUS</td><td>EIN (mit Vorsicht)</td></tr>
-                <tr><td><strong>7. Spurwechsel-Assistent</strong></td><td>–</td><td>–</td><td>–</td></tr>
-                <tr><td><strong>8. Spurhalteassistent (LKA) / Spurfolgeassistent (LFA)</strong></td><td>EIN (gut markierte Straßen)</td><td>EIN (gut markierte Straßen)</td><td>EIN (bei sichtbaren Markierungen)</td></tr>
-                <tr><td><strong>9. FCA (Kollisionswarnung / Notbremsung)</strong></td><td>EIN (alle Funktionen)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td></tr>
-                <tr><td><strong>10. BCA Totwinkelsicherheit</strong></td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnzeit: Früh, sofern verfügbar)</td></tr>
-                <tr><td><strong>11. Klima</strong></td><td>AUTO 22°C, SYNC EIN, ECO EIN (bei 5-25°C)</td><td>AUTO 22°C, ECO EIN (bei 5-25°C), ECO AUS bei Beschlag/hoher Luftfeuchtigkeit</td><td>AUTO 22°C, Scheibenheizung EIN, Frischluft</td></tr>
-                <tr><td><strong>12. Beleuchtung</strong></td><td>AUTO, Fernlicht AUS oder ab 60 km/h</td><td>AUTO, Nebelscheinwerfer bei Starkregen/Nebel EIN, Fernlicht AUS (Reflexion)</td><td>AUTO, Nebelscheinwerfer bei Schnee/Nebel EIN, Fernlicht bei Schneefall AUS (Reflexion)</td></tr>
-                <tr><td><strong>13. Parksensoren / Rückfahrkamera</strong></td><td>EIN / AUTO</td><td>EIN / AUTO</td><td>EIN / AUTO</td></tr>
-                <tr class="row-recommended"><td><strong>14. Ziel-Ladezustand (EV-Einstellungen)</strong></td><td><strong>80% (täglich)</strong>, 100% gelegentlich (1x/Monat BMS-Kalibrierung)</td><td>80%</td><td>90%</td></tr>
-                <tr><td><strong>15. Batteriekonditionierung</strong></td><td>AUS (Auto bei DC-Ziel)</td><td>AUS (Auto bei DC-Ziel)</td><td>MANUELL 30 Min vor DC-Laden</td></tr>
-                <tr><td><strong>16. NSCC (Navi-SCC)</strong></td><td>AUS</td><td>AUS</td><td>EIN</td></tr>
-                <tr><td><strong>17. Auto Hold</strong></td><td>EIN</td><td>EIN</td><td>EIN</td></tr>
-                <tr><td><strong>18. ESC / VSM / HAC / DBC</strong></td><td>EIN (NIE ausschalten)</td><td>EIN</td><td>EIN (NIEMALS ausschalten)</td></tr>
+                <tr data-checklist-id="1"><td><strong>1. Fahrmodus (Drive Mode)</strong></td><td>ECO</td><td>NORMAL</td><td>SNOW</td></tr>
+                <tr data-checklist-id="2"><td><strong>2. Rekuperation (Schaltwippe)</strong></td><td>Level 2</td><td>Level 1</td><td>Level 1 (Level 0 bei Eis/Glätte)</td></tr>
+                <tr data-checklist-id="3"><td><strong>3. i-PEDAL</strong></td><td>EIN (nach Eingewöhnung)</td><td>AUS</td><td>AUS (zu riskant)</td></tr>
+                <tr data-checklist-id="4"><td><strong>4. Intelligente Energierückgewinnung</strong></td><td>AUTO</td><td>Manuell Level 1</td><td>Manuell Level 1 (KEIN AUTO)</td></tr>
+                <tr data-checklist-id="5"><td><strong>5. SCC/ACC Abstand</strong></td><td>EIN (nur Überland), Abstand 4</td><td>EIN, Abstand 4 (Maximum)</td><td>EIN, Abstand 4 (Maximum)</td></tr>
+                <tr data-checklist-id="6"><td><strong>6. HDA (Autobahn-Fahrassistent)</strong></td><td>AUS</td><td>AUS</td><td>EIN (mit Vorsicht)</td></tr>
+                <tr data-checklist-id="7"><td><strong>7. Spurwechsel-Assistent</strong></td><td>–</td><td>–</td><td>–</td></tr>
+                <tr data-checklist-id="8"><td><strong>8. Spurhalteassistent (LKA) / Spurfolgeassistent (LFA)</strong></td><td>EIN (gut markierte Straßen)</td><td>EIN (gut markierte Straßen)</td><td>EIN (bei sichtbaren Markierungen)</td></tr>
+                <tr data-checklist-id="9"><td><strong>9. FCA (Kollisionswarnung / Notbremsung)</strong></td><td>EIN (alle Funktionen)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td><td>EIN (Kollisionswarnung: Früh, sofern verfügbar)</td></tr>
+                <tr data-checklist-id="10"><td><strong>10. BCA Totwinkelsicherheit</strong></td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnung + Lenkeingriff)</td><td>EIN (Warnzeit: Früh, sofern verfügbar)</td></tr>
+                <tr data-checklist-id="11"><td><strong>11. Klima</strong></td><td>AUTO 22°C, SYNC EIN, ECO EIN (bei 5-25°C)</td><td>AUTO 22°C, ECO EIN (bei 5-25°C), ECO AUS bei Beschlag/hoher Luftfeuchtigkeit</td><td>AUTO 22°C, Scheibenheizung EIN, Frischluft</td></tr>
+                <tr data-checklist-id="12"><td><strong>12. Beleuchtung</strong></td><td>AUTO, Fernlicht AUS oder ab 60 km/h</td><td>AUTO, Nebelscheinwerfer bei Starkregen/Nebel EIN, Fernlicht AUS (Reflexion)</td><td>AUTO, Nebelscheinwerfer bei Schnee/Nebel EIN, Fernlicht bei Schneefall AUS (Reflexion)</td></tr>
+                <tr data-checklist-id="13"><td><strong>13. Parksensoren / Rückfahrkamera</strong></td><td>EIN / AUTO</td><td>EIN / AUTO</td><td>EIN / AUTO</td></tr>
+                <tr class="row-recommended" data-checklist-id="14"><td><strong>14. Ziel-Ladezustand (EV-Einstellungen)</strong></td><td><strong>80% (täglich)</strong>, 100% gelegentlich (1x/Monat BMS-Kalibrierung)</td><td>80%</td><td>90%</td></tr>
+                <tr data-checklist-id="15"><td><strong>15. Batteriekonditionierung</strong></td><td>AUS (Auto bei DC-Ziel)</td><td>AUS (Auto bei DC-Ziel)</td><td>MANUELL 30 Min vor DC-Laden</td></tr>
+                <tr data-checklist-id="16"><td><strong>16. NSCC (Navi-SCC)</strong></td><td>AUS</td><td>AUS</td><td>EIN</td></tr>
+                <tr data-checklist-id="17"><td><strong>17. Auto Hold</strong></td><td>EIN</td><td>EIN</td><td>EIN</td></tr>
+                <tr data-checklist-id="18"><td><strong>18. ESC / VSM / HAC / DBC</strong></td><td>EIN (NIE ausschalten)</td><td>EIN</td><td>EIN (NIEMALS ausschalten)</td></tr>
             </tbody>
         </table>
     </div>

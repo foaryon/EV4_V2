@@ -723,6 +723,110 @@
         });
     }
 
+    function initChecklist() {
+        var table = document.querySelector('.table-profile-checklist');
+        var actions = document.getElementById('checklist-actions');
+        var progressEl = document.getElementById('checklist-progress');
+        var resetBtn = document.getElementById('checklist-reset');
+        var printBtn = document.getElementById('checklist-print');
+        var qrBtn = document.getElementById('checklist-qr');
+        var qrModal = document.getElementById('checklist-qr-modal');
+        var qrCanvas = document.getElementById('checklist-qr-canvas');
+        var STORAGE_KEY = 'ev4-checklist-done';
+
+        if (!table || !actions) return;
+
+        function loadState() {
+            try {
+                var s = localStorage.getItem(STORAGE_KEY);
+                return s ? JSON.parse(s) : {};
+            } catch (e) { return {}; }
+        }
+        function saveState(state) {
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+        }
+
+        function updateProgress() {
+            var rows = table.querySelectorAll('tbody tr[data-checklist-id]');
+            var done = 0;
+            rows.forEach(function (r) {
+                var cb = r.querySelector('.checklist-cb');
+                if (cb && cb.checked) done++;
+            });
+            progressEl.textContent = done + ' / ' + rows.length + ' erledigt';
+            actions.hidden = false;
+        }
+
+        var state = loadState();
+        table.querySelectorAll('tbody tr[data-checklist-id]').forEach(function (tr) {
+            var id = tr.getAttribute('data-checklist-id');
+            if (!id) return;
+            var firstTd = tr.querySelector('td:first-child');
+            if (!firstTd) return;
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.className = 'checklist-cb';
+            cb.setAttribute('aria-label', 'Einstellung ' + id + ' erledigt');
+            cb.checked = !!state[id];
+            if (cb.checked) tr.classList.add('checklist-done');
+            cb.addEventListener('change', function () {
+                state[id] = cb.checked;
+                saveState(state);
+                tr.classList.toggle('checklist-done', cb.checked);
+                updateProgress();
+            });
+            firstTd.insertBefore(cb, firstTd.firstChild);
+        });
+        updateProgress();
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function () {
+                state = {};
+                saveState(state);
+                table.querySelectorAll('.checklist-cb').forEach(function (cb) {
+                    cb.checked = false;
+                });
+                table.querySelectorAll('tr.checklist-done').forEach(function (r) { r.classList.remove('checklist-done'); });
+                updateProgress();
+            });
+        }
+        if (printBtn) {
+            printBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.print();
+            });
+        }
+        var qrOutput = document.getElementById('checklist-qr-output');
+        if (qrBtn && qrModal && qrOutput) {
+            qrBtn.addEventListener('click', function () {
+                var url = location.href.split('#')[0] + '#empfohlene-einstellungen';
+                qrModal.removeAttribute('hidden');
+                qrModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('checklist-qr-open');
+                qrOutput.innerHTML = '';
+                var img = document.createElement('img');
+                img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
+                img.alt = 'QR-Code für Checkliste';
+                img.width = 200;
+                img.height = 200;
+                qrOutput.appendChild(img);
+            });
+            qrModal.querySelectorAll('[data-action="close-qr"]').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    qrModal.setAttribute('hidden', '');
+                    qrModal.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('checklist-qr-open');
+                });
+            });
+        }
+    }
+
+    function initServiceWorker() {
+        if (!('serviceWorker' in navigator)) return;
+        if (location.protocol !== 'https:' && !location.hostname.match(/^localhost$/)) return;
+        navigator.serviceWorker.register('./sw.js').catch(function () {});
+    }
+
     function run() {
         initPageNavClone();
         initScrollSpy();
@@ -734,5 +838,7 @@
         initSearch();
         initLightbox();
         initFooterPlaceholderLinks();
+        initChecklist();
+        initServiceWorker();
     }
 })();

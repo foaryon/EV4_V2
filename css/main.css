@@ -2157,6 +2157,9 @@ table {
         margin-bottom: var(--space-2);
         border-bottom: 1px solid var(--border) !important;
         background: transparent !important;
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
     }
     .table-profile-checklist td:nth-child(2)::before,
     .table-profile-checklist td:nth-child(3)::before,
@@ -3032,6 +3035,123 @@ body.lightbox-open { overflow: hidden; touch-action: none; }
         width: var(--touch-target-min);
         height: var(--touch-target-min);
     }
+}
+
+/* Checklist – interaktive Fortschrittsverfolgung, Druck, QR */
+.checklist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--fluid-gap);
+    margin-bottom: var(--fluid-gap);
+    padding: var(--space-2) var(--space-3);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+.checklist-actions[hidden] { display: none !important; }
+.checklist-progress {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-secondary);
+}
+.checklist-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+.btn-checklist-reset,
+.btn-checklist-print,
+.btn-checklist-qr {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    font-family: inherit;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--duration-fast), color var(--duration-fast);
+    text-decoration: none;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border);
+}
+.btn-checklist-reset:hover,
+.btn-checklist-print:hover,
+.btn-checklist-qr:hover {
+    background: var(--accent-muted);
+    color: var(--accent);
+    border-color: var(--accent-muted-strong);
+}
+.btn-checklist-print { display: inline-flex; align-items: center; gap: var(--space-1); }
+.table-profile-checklist td.checklist-done { text-decoration: line-through; opacity: 0.7; }
+.table-profile-checklist .checklist-cb {
+    margin-right: var(--space-2);
+    vertical-align: middle;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+.checklist-qr-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: visibility var(--duration-normal), opacity var(--duration-normal);
+}
+.checklist-qr-modal[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+.checklist-qr-backdrop {
+    position: absolute;
+    inset: 0;
+    background: var(--backdrop);
+    cursor: pointer;
+}
+.checklist-qr-inner {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    text-align: center;
+    max-width: min(95vw, 20rem);
+    box-shadow: var(--shadow-xl);
+}
+.checklist-qr-inner h3 { margin: 0 0 var(--space-2); font-size: var(--text-lg); }
+.checklist-qr-inner p { margin: 0 0 var(--space-3); font-size: var(--text-sm); color: var(--text-secondary); }
+.checklist-qr-output {
+    margin: 0 auto var(--space-3);
+}
+.checklist-qr-output img {
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+}
+body.checklist-qr-open { overflow: hidden; }
+.btn-checklist-qr-close {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    font-family: inherit;
+    background: var(--accent);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+.btn-checklist-qr-close:hover { background: var(--accent-hover); }
+@media print {
+    .checklist-actions, .checklist-qr-modal { display: none !important; }
+    .table-profile-checklist .checklist-cb { display: none; }
 }
 
 /* ==========================================================================
