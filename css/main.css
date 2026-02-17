@@ -227,12 +227,19 @@ nav {
     align-items: center;
     flex-wrap: wrap;
     gap: var(--fluid-gap);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
 nav .nav-brand {
     display: flex;
     flex-direction: column;
     gap: 0;
+    min-width: 0;
+    flex: 1 1 0%;
+    overflow-wrap: break-word;
 }
 nav .nav-brand-link {
     font-size: clamp(var(--text-lg), 1rem + 0.8vw, var(--text-2xl));
@@ -243,6 +250,7 @@ nav .nav-brand-link {
     align-items: center;
     gap: var(--space-1);
     color: var(--text-primary);
+    white-space: normal;
     text-decoration: none;
     transition: background 100ms linear, color 100ms linear;
 }
@@ -319,6 +327,7 @@ nav a {
     align-items: center;
     gap: var(--space-1);
     white-space: nowrap;
+    min-width: 0;
 }
 
 /* Wix-Style Hover: Grau-Füllung, weiße Schrift (wie .RMlTST:hover) */
@@ -412,11 +421,11 @@ nav.nav-menu-open .nav-menu-backdrop {
     visibility: visible;
 }
 
-/* --bp-md: Hamburger-Dropdown – Card-Optik, klare Hierarchie */
+/* --bp-md: Hamburger-Dropdown – nur wenn nav-menu-trigger vorhanden (index); changelog/404 behalten sichtbare Links */
 @media (max-width: 768px) {
     nav { position: relative; flex-direction: row; flex-wrap: wrap; }
     .nav-menu-trigger { display: inline-flex; }
-    .nav-links {
+    nav:has(.nav-menu-trigger) .nav-links {
         position: fixed;
         top: 0;
         right: 0;
@@ -1201,7 +1210,7 @@ section p:last-child {
     padding: 0;
     background: none;
     border: none;
-    max-width: 65ch;
+    max-width: min(65ch, 100%);
 }
 .quellen-methodik-ref a,
 .helper-text--short a {
