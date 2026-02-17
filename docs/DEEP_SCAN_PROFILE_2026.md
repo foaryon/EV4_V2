@@ -10,7 +10,7 @@
 | Bereich | Vorher | Nachher | Quelle |
 |---------|--------|---------|--------|
 | **FCA Warnzeit-Optionen** | Aus / Früh / Normal / Spät | Standard / Verzögert (Handbuch S. 510) | PRUEFBERICHT_HANDBUCH_PDF_2026 |
-| **FCA Menüpfad** | Sicherheit vorne | Kollisionsvermeidung in Fahrtrichtung | Handbuch S. 507; „Sicherheit vorne" = Warnleuchte |
+| **FCA Menüpfad** | Sicherheit vorne | Kollisionsvermeidung in Fahrtrichtung | Handbuch S. 507; ownersmanual.kia.com: „Sicherheit vorne" = Warnleuchte |
 | **FCA Checkliste Regen/Winter** | Kollisionswarnung: Früh | Warnzeit: Standard | EV4 bietet nur Standard/Verzögert |
 | **DC-Ladeleistung** | 235 kW (Peak) | 127 kW (EV4 max.) | evspecifications, ev4-earth-specs.json |
 | **Ladekurve DC** | 10-50% = 235 kW, 50-80% = 150 kW | 10-80% bis 127 kW, Tapering 80-100% | evspecifications |
@@ -53,4 +53,18 @@
 
 ---
 
-*Deep Scan abgeschlossen. Empfehlungen entsprechen dem EV4-Handbuch und den technischen Spezifikationen.*
+## 5. Online-Quellen-Check (Februar 2026)
+
+| Quelle | URL | Befund |
+|--------|-----|--------|
+| **KIA EU Presales** | kia.com/eu/new-cars/ev4-presales/ | 10–80 % DC in 29–31 min, 630 km WLTP bestätigt |
+| **KIA ownersmanual (DE)** | ownersmanual.kia.com | FCA: **Standard** und **Später** (nicht „Verzögert“ – PDF-Variante; beide = spätere Warnung) |
+| **KIA ownersmanual (EN)** | ownersmanual.kia.com FCA Settings | Forward safety: Standard / Late |
+| **ADAC EV4 Earth** | adac.de/…/kia/ev4/341448 | 81,4 kWh, 150 kW (204 PS), 7,7 s, 170 km/h bestätigt |
+| **evspecifications.com** | evspecifications.com/en/model/c446399 | Captcha blockiert Abruf; 127 kW aus data/ev4-earth-specs.json |
+
+**Hinweis FCA:** DE-Online-Handbuch nutzt „Später“, PDF „Verzögert“ – synonym. Empfehlung „Standard“ (nicht die spätere Option) ist korrekt.
+
+---
+
+*Deep Scan abgeschlossen. Empfehlungen entsprechen dem EV4-Handbuch und den technischen Spezifikationen. Online-Quellen stichprobenartig geprüft.*
