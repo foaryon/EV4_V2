@@ -115,10 +115,10 @@ Die aktuellen Empfehlungen sind **evidenzbasiert und realistisch**. Nachfolgend 
 | Profil | Empfehlung | Quelle / Begründung |
 |--------|------------|----------------------|
 | Standard | EIN (alle Funktionen) | **A** Handbuch FCA: Kollisionswarnung, Notbremsung, ggf. Notlenkung. Vollumfänglich EIN empfohlen. |
-| Regen | EIN (Warnzeit: Früh) | **A/B** KIA FCA: Einstellung „Warning Timing“ (Early/Normal/Late). „Früh“ = Early = mehr Vorlauf, bei Nässe sinnvoll (längerer Bremsweg). |
-| Winter | EIN (Warnzeit: Früh) | Wie Regen; bei Glätte noch wichtiger, früher zu warnen. |
+| Regen | EIN (Warnzeit: Standard) | **A** Handbuch S. 510: EV4 bietet **Standard** und **Verzögert** (EN: Standard/Late). Standard = frühere Warnung; bei Nässe sinnvoll (längerer Bremsweg). |
+| Winter | EIN (Warnzeit: Standard) | Wie Regen; bei Glätte noch wichtiger, früher zu warnen. |
 
-**Fazit:** Bestätigt. „Warnzeit: Früh“ entspricht „Early“ im Handbuch wo verfügbar.
+**Fazit:** Bestätigt. EV4-Handbuch (S. 510, PDF-Prüfbericht): Nur 2 Optionen – **Standard** (frühere Warnung) und **Verzögert** (spätere Warnung). Menüpfad: Kollisionsvermeidung in Fahrtrichtung (nicht „Sicherheit vorne" = Warnleuchte).
 
 ---
 
@@ -238,7 +238,9 @@ Die aktuellen Empfehlungen sind **evidenzbasiert und realistisch**. Nachfolgend 
 ## Empfehlung an die Redaktion
 
 - **Inhalt:** Keine Korrektur der 18×3-Werte nötig; alle Empfehlungen sind mit Handbuch und seriösen Quellen vereinbar.
-- **Optional:** In den Detailabschnitten (z. B. FCA, BCA) kurz vermerken, dass „Warnzeit: Früh“ der Einstellung **Early** (sofern im Fahrzeug vorhanden) entspricht; bei nur Normal/Late: **Normal** für Regen/Winter verwenden.
+- **FCA-Terminologie (Deep Scan Feb 2026):** EV4-Handbuch S. 510 nennt nur **Standard** und **Verzögert** (nicht Früh/Normal/Spät). Empfehlung angepasst: Warnzeit = Standard (nicht Verzögert) für Regen/Winter.
+- **DC-Ladeleistung:** EV4 Earth max. 127 kW (evspecifications, KIA Preisliste); 235 kW gilt für andere KIA-Modelle (z. B. EV6).
+- **Ausstattungsabhängig:** FCA 2.0, HDA 2.0, NSCC, Batteriekonditionierung sind optional (z. B. P6 DriveWise). Hinweis in index.html ergänzt.
 - **Quellenangabe:** In `index.html` bzw. Methodik kann auf dieses Dokument verwiesen werden: `docs/VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md`.
 
 ---
