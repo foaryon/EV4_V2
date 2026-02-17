@@ -1,8 +1,9 @@
 /* Design-Tokens: WIX.html Technologieunternehmen viewer – Madefor, black/white, Wix focus.
-   Fluid Responsive: clamp() und intrinsische Layouts – kein Geräte-Flickwerk.
-   Breakpoints nur wo nötig (Nav-Collapse), sonst: content-driven, viewport-fluide Skalierung. */
+   Fully fluid responsive: no hardcoded widths. All layout via clamp(), min(), vw, ch, %.
+   Container queries for layout shifts; viewport-relative for typography and spacing. */
 :root {
-    --touch-target-min: 44px;
+    /* Touch target: WCAG 2.2 minimum (2.75rem ≈ 44px at 16px root) */
+    --touch-target-min: 2.75rem;
 
     /* Fluid Layout – skaliert automatisch mit Viewport (clamp(min, preferred, max)) */
     --container-gutter: clamp(0.5rem, 1vw + 0.75rem, 2.5rem);
@@ -13,6 +14,17 @@
     --fluid-gap-sm: clamp(0.5rem, 1vw, 0.75rem);
     --fluid-gap: clamp(0.75rem, 1.5vw, 1.25rem);
     --fluid-gap-lg: clamp(1rem, 2.5vw, 1.5rem);
+
+    /* Fluid layout tokens – no fixed px/rem widths; all viewport/content-relative */
+    --container-max: min(100%, 90vw);
+    --grid-min: min(100%, 40vw);
+    --grid-min-sm: min(100%, 25vw);
+    --grid-min-lg: min(100%, 15vw);
+    --content-max: min(90vw, 40ch);
+    --content-max-sm: min(90vw, 35ch);
+    --section-inner-max: min(95%, 90vw);
+    --drawer-width: min(100%, 100vw - 2 * var(--container-gutter) - env(safe-area-inset-right, 0px));
+    --sidebar-width: clamp(11rem, 15vw, 13rem);
 
     /* Typografie – Wix Madefor (WIX.html) */
     --font-sans: 'Madefor-Text', 'Madefor', -apple-system, sans-serif;
@@ -105,8 +117,6 @@
     --duration-normal: 0.25s;
     --duration-slow: 0.4s;
 
-    /* Layout – fluid container: width 100% + max 1560px = fluid on all devices */
-    --container-max: 1560px;
 }
 
 * {
@@ -177,6 +187,8 @@ html {
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
     width: 100%;
+    container-type: inline-size;
+    container-name: viewport;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -421,8 +433,8 @@ nav.nav-menu-open .nav-menu-backdrop {
     visibility: visible;
 }
 
-/* --bp-md: Hamburger-Dropdown – nur wenn nav-menu-trigger vorhanden (index); changelog/404 behalten sichtbare Links */
-@media (max-width: 768px) {
+/* Hamburger-Dropdown – content-driven via container query (viewport width) */
+@container viewport (max-width: 48rem) {
     nav { position: relative; flex-direction: row; flex-wrap: wrap; }
     .nav-menu-trigger { display: inline-flex; }
     nav:has(.nav-menu-trigger) .nav-links {
@@ -431,7 +443,7 @@ nav.nav-menu-open .nav-menu-backdrop {
         right: 0;
         bottom: 0;
         left: auto;
-        width: min(320px, 100vw - 2 * var(--container-gutter) - env(safe-area-inset-right, 0px));
+        width: var(--drawer-width);
         max-width: 100%;
         padding-top: env(safe-area-inset-top, 0px);
         padding-right: env(safe-area-inset-right, 0px);
@@ -442,7 +454,7 @@ nav.nav-menu-open .nav-menu-backdrop {
         padding: 0;
         background: var(--surface);
         border-left: 1px solid var(--border);
-        box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+        box-shadow: -0.5rem 0 1.5rem rgba(0, 0, 0, 0.15);
         z-index: 99;
         overflow-x: hidden;
         overflow-y: auto;
@@ -531,17 +543,15 @@ nav.nav-menu-open .nav-menu-backdrop {
     .nav-links a.is-active::after { display: none; }
 }
 /* Desktop: "Auf dieser Seite" im Nav ausblenden (Sidebar nutzen) */
-@media (min-width: 769px) {
+@container viewport (min-width: 48.0625rem) {
     .nav-on-this-page { display: none !important; }
     .nav-links-heading { display: none; }
     .nav-menu-backdrop { display: none !important; }
 }
-/* above --bp-md */
-@media (min-width: 769px) {
+@container viewport (min-width: 48.0625rem) {
     .nav-menu-trigger { display: none; }
 }
-/* --bp-sm */
-@media (max-width: 480px) {
+@container viewport (max-width: 30rem) {
     .nav-search-label { display: none; }
 }
 
@@ -597,10 +607,10 @@ main.container,
     }
 }
 
-@media (min-width: 1024px) {
+@container viewport (min-width: 64rem) {
     main.container {
         display: grid;
-        grid-template-columns: 1fr clamp(11rem, 15vw, 13rem);
+        grid-template-columns: 1fr var(--sidebar-width);
         gap: var(--space-5);
         align-items: start;
     }
@@ -705,14 +715,14 @@ main.container,
 /* Hero: fluid CTAs stack on narrow viewports */
 @container hero (max-width: 48rem) {
     .page-hero { background-position: center 30%; }
-    .page-hero-ctas { flex-direction: column; width: 100%; max-width: 20rem; margin-inline: auto; }
+    .page-hero-ctas { flex-direction: column; width: 100%; max-width: var(--content-max); margin-inline: auto; }
     .page-hero-ctas .btn-primary,
     .page-hero-ctas .btn-secondary { width: 100%; }
 }
 @supports not (container-type: inline-size) {
     @media (max-width: 48rem) {
         .page-hero { background-position: center 30%; }
-        .page-hero-ctas { flex-direction: column; width: 100%; max-width: 20rem; margin-inline: auto; }
+        .page-hero-ctas { flex-direction: column; width: 100%; max-width: var(--content-max); margin-inline: auto; }
         .page-hero-ctas .btn-primary,
         .page-hero-ctas .btn-secondary { width: 100%; }
     }
@@ -745,7 +755,7 @@ main.container,
     line-height: var(--leading-tight);
     margin: 0 auto var(--space-2);
     text-align: center;
-    max-width: min(90vw, 36rem);
+    max-width: var(--content-max);
     white-space: normal;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -761,7 +771,7 @@ main.container,
     line-height: var(--leading-relaxed);
     margin: 0 auto;
     text-align: center;
-    max-width: min(90vw, 32rem);
+    max-width: var(--content-max-sm);
     white-space: normal;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -785,7 +795,7 @@ main.container,
 .page-hero-ctas .btn-primary,
 .page-hero-ctas .btn-secondary {
     min-height: var(--touch-target-min);
-    min-width: min(100%, 12rem);
+    min-width: min(100%, 20ch);
 }
 
 /* Wix Technologieunternehmen: Stats-Strip (EV4 in Zahlen) */
@@ -799,10 +809,10 @@ main.container,
 }
 /* Intrinsisches Grid – 2–4 Spalten je nach Platz */
 .hero-stats-inner {
-    max-width: min(900px, 95%);
+    max-width: var(--section-inner-max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.5rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-sm), 1fr));
     gap: var(--fluid-gap-lg);
     text-align: center;
     width: 100%;
@@ -846,7 +856,7 @@ main.container,
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear;
-    min-width: clamp(5rem, 10vw, 6rem);
+    min-width: min(10ch, 20vw);
 }
 .btn-primary:hover,
 .page-hero-ctas .btn-primary:hover {
@@ -873,7 +883,7 @@ main.container,
     gap: var(--space-1);
     padding: 0 clamp(var(--space-3), 3vw, var(--space-5));
     min-height: var(--touch-target-min);
-    font-size: 14px;
+    font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     font-family: var(--font-sans);
     color: var(--accent);
@@ -883,7 +893,7 @@ main.container,
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear;
-    min-width: clamp(5rem, 10vw, 6rem);
+    min-width: min(10ch, 20vw);
 }
 .btn-secondary:hover,
 .page-hero-ctas .btn-secondary:hover {
@@ -963,7 +973,7 @@ section img {
     display: flex;
     align-items: center;
     gap: var(--space-1);
-    font-size: 19px;
+    font-size: var(--text-section-title);
     font-weight: 500;
     letter-spacing: var(--tracking-tight);
     line-height: var(--leading-tight);
@@ -991,7 +1001,7 @@ section img {
 /* Intrinsisches Grid – passt Spaltenanzahl automatisch an verfügbaren Platz an */
 .toc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
     grid-auto-rows: minmax(var(--touch-target-min), auto);
     gap: var(--fluid-gap-lg);
     list-style: none;
@@ -1006,7 +1016,7 @@ section img {
 /* 3 Szenarien: intrinsisches Grid – Spalten passen sich automatisch an */
 .profile-szenarien-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
     gap: var(--fluid-gap-lg);
     margin: 0;
     padding: 0;
@@ -1025,10 +1035,10 @@ section img {
 
 .profile-szenario-icon {
     flex-shrink: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+    min-height: var(--touch-target-min);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1138,10 +1148,10 @@ section img {
 
 .toc-icon {
     flex-shrink: 0;
-    width: clamp(2rem, 4vw, 2.25rem);
-    height: clamp(2rem, 4vw, 2.25rem);
-    min-width: clamp(2rem, 4vw, 2.25rem);
-    min-height: clamp(2rem, 4vw, 2.25rem);
+    width: clamp(1.25rem, 2.5vw, 1.5rem);
+    height: clamp(1.25rem, 2.5vw, 1.5rem);
+    min-width: clamp(1.25rem, 2.5vw, 1.5rem);
+    min-height: clamp(1.25rem, 2.5vw, 1.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1757,8 +1767,8 @@ a.source-ref[target="_blank"]::after {
 /* Intrinsisches Grid – Spalten passen sich automatisch an */
 .galerie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-    grid-auto-rows: minmax(clamp(12rem, 25vw, 12.5rem), auto);
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
+    grid-auto-rows: minmax(clamp(12rem, 25vw, 20rem), auto);
     gap: var(--fluid-gap-lg);
     list-style: none;
     margin: 0;
@@ -1780,7 +1790,7 @@ a.source-ref[target="_blank"]::after {
     }
 }
 .galerie-grid--details {
-    max-width: 42rem;
+    max-width: var(--content-max);
     margin-left: auto;
     margin-right: auto;
 }
@@ -1814,7 +1824,7 @@ a.source-ref[target="_blank"]::after {
 .galerie-item--hero .galerie-img {
     aspect-ratio: auto;
     height: 100%;
-    min-height: clamp(180px, 30vw, 320px);
+    min-height: clamp(11rem, 30vw, 20rem);
 }
 .galerie-link {
     display: block;
@@ -2007,7 +2017,7 @@ a.source-ref[target="_blank"]::after {
     font-size: var(--text-sm);
     color: var(--text-inverse);
     text-align: center;
-    max-width: 36rem;
+    max-width: var(--content-max);
     margin-top: var(--space-1);
 }
 .lightbox-overlay .lightbox-counter {
@@ -2087,7 +2097,7 @@ table {
 /* Profil-Checkliste: erste Spalte Einstellung breiter, drei Profil-Spalten gleich breit und einheitlich */
 .table-profile-checklist .col-setting {
     width: 34%;
-    min-width: 11rem;
+    min-width: min(11rem, 30vw);
 }
 .table-profile-checklist .col-profile {
     width: 22%;
@@ -2220,7 +2230,7 @@ table {
 /* Tabellen: fluid Layout – Spalten flexibel, horizontales Scroll bei Bedarf */
 .responsive-table-wrapper table {
     table-layout: auto;
-    min-width: min(100%, 36rem);
+    min-width: min(100%, 50vw);
 }
 @container main (min-width: 48rem) {
     .table-profile-checklist .col-setting,
@@ -2257,7 +2267,7 @@ th {
     top: 0;
     z-index: 1;
 }
-@media (max-width: 768px) {
+@container viewport (max-width: 48rem) {
     .responsive-table-wrapper thead th { position: static; }
 }
 .table-profile-checklist thead th:first-child {
@@ -2381,7 +2391,7 @@ section .justification-content li {
     padding-inline: var(--container-gutter);
     display: grid;
     gap: clamp(var(--space-4), 4vw, var(--space-6));
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
     text-align: left;
     box-sizing: border-box;
 }
@@ -2490,8 +2500,7 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
         border-color: #fff;
     }
 }
-/* --bp-md */
-@media (max-width: 768px) {
+@container viewport (max-width: 48rem) {
     nav .nav-links {
         width: 100%;
         flex-direction: column;
@@ -2508,8 +2517,7 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
     .hero-stats-inner { gap: var(--fluid-gap-lg); padding-inline: 0; grid-template-columns: repeat(2, 1fr); }
 }
 
-/* --bp-xs: Extra small devices (portrait phones < 360px) */
-@media (max-width: 359px) {
+@container viewport (max-width: 22.5rem) {
     .hero-stats-inner { grid-template-columns: 1fr; }
     .page-hero { padding: clamp(var(--space-4), 6vw, var(--space-6)) var(--container-gutter); min-height: 80vh; min-height: 80dvh; }
     .page-hero-title { font-size: clamp(1.25rem, 5vw + 1rem, 1.75rem); }
@@ -2613,7 +2621,7 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
 
 /* Changelog – datengetrieben, Modal (<dialog>), Design-System (Surface, Border, Dark Mode) */
 .changelog-modal {
-    max-width: clamp(20rem, 90vw, 58rem);
+    max-width: min(96vw, 50ch);
     max-height: min(88vh, 90dvh);
     padding: clamp(var(--space-4), 5vw, var(--space-6)) 0 0 clamp(var(--space-4), 5vw, var(--space-6));
     margin: auto;
@@ -2681,7 +2689,7 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
     color: var(--text-secondary);
     margin: 0;
     padding: 0;
-    max-width: 42em;
+    max-width: var(--content-max);
 }
 .changelog-modal-close {
     grid-column: 2;
@@ -2782,8 +2790,8 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
 .changelog-modal-body .changelog-loading {
     color: var(--text-muted);
 }
-@media (max-width: 768px) {
-    .changelog-modal { max-width: min(96vw, 58rem); max-height: min(92vh, 90dvh); }
+@container viewport (max-width: 48rem) {
+    .changelog-modal { max-width: min(96vw, 50ch); max-height: min(92vh, 90dvh); }
     .changelog-modal-header {
         padding: clamp(var(--space-3), 4vw, var(--space-4));
         gap: var(--fluid-gap-sm) var(--fluid-gap);
@@ -2825,7 +2833,7 @@ ul.changelog-td { margin: var(--space-1) 0 0 var(--space-2); padding-left: var(-
 .search-overlay-inner {
     position: relative;
     width: 100%;
-    max-width: min(560px, 95vw);
+    max-width: min(95vw, 40ch);
     max-height: calc(100dvh - 7rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     background: var(--surface);
     border-radius: var(--radius-md);
@@ -2974,7 +2982,7 @@ body.lightbox-open { overflow: hidden; touch-action: none; }
     .search-overlay { transition: none; }
 }
 /* --bp-md */
-@media (max-width: 768px) {
+@container viewport (max-width: 48rem) {
     .search-overlay { padding: var(--space-8) var(--container-gutter) var(--space-2); }
     .search-overlay-inner { max-height: calc(100dvh - var(--scroll-padding-top) - env(safe-area-inset-top, 0px)); }
 }
@@ -3017,7 +3025,7 @@ body.lightbox-open { overflow: hidden; touch-action: none; }
     .back-to-top { transition: none; }
 }
 /* --bp-md */
-@media (max-width: 768px) {
+@container viewport (max-width: 48rem) {
     .back-to-top {
         bottom: max(var(--fluid-gap-lg), env(safe-area-inset-bottom));
         right: max(var(--fluid-gap-lg), env(safe-area-inset-right));
