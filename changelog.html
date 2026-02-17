@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0e12">
+    <meta name="description" content="Changelog – KIA EV4 2026 EU Systemanalyse. Änderungen an Struktur, Darstellung und Inhalten.">
+    <title>Changelog – KIA EV4 2026 EU Systemanalyse</title>
+    <link rel="canonical" href="https://example.com/ev4/changelog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav>
+    <div>
+        <h1><span class="material-symbols-outlined nav-icon">electric_car</span> KIA EV4 2026 EU - Earth LR 81 kWh FWD</h1>
+        <div class="subtitle">Vollständige forensische Systemanalyse (P3–P6) | Handbuch-verifiziert (Klassifikation A)</div>
+    </div>
+    <div class="nav-links">
+        <a href="index.html"><i class="material-symbols-outlined">arrow_back</i> Zurück zur Systemanalyse</a>
+    </div>
+</nav>
+
+<main id="main" class="container">
+
+<section id="changelog">
+    <h2><i class="material-symbols-outlined">history</i> Changelog</h2>
+    <p>Änderungen an diesem Dokument (Struktur, Darstellung, Inhalte). Inhaltliche Empfehlungen basieren weiterhin auf der KIA EV4 Bedienungsanleitung 2026.</p>
+    <div class="responsive-table-wrapper">
+        <table>
+            <thead>
+                <tr><th scope="col">Version</th><th scope="col">Datum</th><th scope="col">Änderungen</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>v2.1.2</strong></td>
+                    <td>Januar 2026</td>
+                    <td>Heuristischer Audit (100+ Szenarien): Sprungziel-Highlight auch bei Klick auf „Empf. Einstellungen“ (<code>section:has(#profile-checklist:target)</code>); Tabellen auf schmalen Viewports horizontal scrollbar belassen (Konflikt <code>table-layout</code> in zweiter 768px-Regel behoben).</td>
+                </tr>
+                <tr>
+                    <td><strong>v2.1.1</strong></td>
+                    <td>Januar 2026</td>
+                    <td>Audit: <code>scope="col"</code> an allen Tabellen-<code>th</code> ergänzt (Barrierefreiheit); Inline-Style im Changelog in Klasse <code>ul.changelog-td</code> ausgelagert.</td>
+                </tr>
+                <tr>
+                    <td><strong>v2.1.0</strong></td>
+                    <td>Januar 2026</td>
+                    <td><strong>Design-Update 2026:</strong> Erweiterte Design-Tokens (Schatten, Easing, Radius); Seitenhintergrund mit Gradient und dezenten Akzent-Orbs; Nav mit Glassmorphism (backdrop-filter); Hero-Strip mit Tagline; TOC/Sektionen/Profile-Cards mit Premium-Look (größere Radien, linke Akzentlinie, stärkere Schatten); Tabellen mit Gradient-Header und sanften Hover-Übergängen; Footer mit Gradient und Akzentlinie; Smooth Scroll + <code>scroll-padding</code>; Fokus-Styles (<code>focus-visible</code>) für Barrierefreiheit; <code>:target</code>-Highlight beim Anspringen; Dark Mode angepasst; <code>prefers-reduced-motion</code> berücksichtigt; Print-Styles optimiert; Meta <code>theme-color</code> und <code>description</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>v2.0.2</strong></td>
+                    <td>Januar 2026</td>
+                    <td>Bereinigung: ungenutzte ID <code>recommended-summary</code> und Klasse <code>profile-matrix</code> entfernt; historischer HTML-Kommentar (Kurzansicht-Karten) entfernt – nur Essenzielles behalten.</td>
+                </tr>
+                <tr>
+                    <td><strong>v2.0.1</strong></td>
+                    <td>Januar 2026</td>
+                    <td>Konsistenz: <strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> in allen verbleibenden Unterabschnitten einklappbar gemacht (Batterie: Ladegrenze &amp; Ladestrom, Batteriekonditionierung; Navigation: NSCC; Personalisierung: Benutzerprofile, Auto Hold).</td>
+                </tr>
+                <tr>
+                    <td><strong>v2.0</strong></td>
+                    <td>Januar 2026</td>
+                    <td>
+                        <ul class="changelog-td">
+                            <li>Kurzansicht-Karten entfernt; eine <strong>Vollständige Einstellungsliste</strong> (Checkliste) als zentrale Übersicht.</li>
+                            <li><strong>Begründungen</strong> pro Einstellung durchgehend einklappbar (<code>details/summary</code>).</li>
+                            <li><strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> pro Einstellung einklappbar – Kerninfos (Optionen, ✓ Optimale Einstellungen) im Vordergrund.</li>
+                            <li>HTML-Struktur bereinigt (Schließ-Tags <code>details</code> in richtige Sektionen verschoben).</li>
+                            <li>Nav und TOC vereinfacht (ein Eintrag „Empf. Einstellungen“ / Checkliste).</li>
+                            <li>Section-Intro am Anfang von „Drive Mode“ entfernt (Handbuch-Hinweis in Methodik/Footer).</li>
+                            <li><strong>Changelog-Sektion</strong> ergänzt; Titel ohne Versions-Suffix (Versionsinfo hier).</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>v1.x</strong></td>
+                    <td>–</td>
+                    <td>Initiale Version; forensische Validierung gegen Bedienungsanleitung; 3 Fahrprofile, 9 Detailabschnitte, Evidenzhierarchie.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <p><strong>KIA EV4 2026 EU - Vollständige Systemanalyse</strong></p>
+    <p>Erstellt: Januar 2026 | Quelle: KIA EV4 Bedienungsanleitung 2026 (Klassifikation A) + UNECE-Regulierungen</p>
+    <p><em>Forensisch validiert | Evidenzbasiert | Heuristisch geprüft | Safety Priority</em></p>
+    <p class="footer-disclaimer">Alle Einstellungen basieren auf offizieller Dokumentation. Bei Unsicherheiten autorisierte Kia-Werkstatt konsultieren.</p>
+</footer>
+
+</main>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

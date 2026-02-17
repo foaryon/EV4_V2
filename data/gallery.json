@@ -1,0 +1,14 @@
+{
+  "source": "KIA UK (kia.com/uk/new-cars/ev4/) und KIA Media (kiamedia.com). Nur EV4 Earth 81 kWh Hatchback (Schrägheck). Editorial use. Stand: 2026.",
+  "bodyStyle": "hatchback",
+  "bodyStyleNote": "Alle Bilder müssen den KIA EV4 Earth 81 kWh Hatchback zeigen. Ersetzen Sie Bilddateien bei Bedarf; siehe docs/BILDQUELLEN_EV4_HATCHBACK.md.",
+  "images": [
+    { "id": "ev4-front", "src": "img/ev4/exterior/ev4-front.jpg", "alt": "KIA EV4 Earth 81 kWh Hatchback Außen – Frontansicht (Stirnansicht)", "caption": "Außen – Frontansicht (Stirnansicht)", "content": "Außen: Fahrzeug von vorne (Stirnansicht)", "category": "exterior" },
+    { "id": "ev4-side", "src": "img/ev4/exterior/ev4-side.jpg", "alt": "KIA EV4 Earth 81 kWh Hatchback Außen – Seitenansicht (Profil)", "caption": "Außen – Seitenansicht (Profil)", "content": "Außen: Fahrzeug von der Seite (Profil)", "category": "exterior" },
+    { "id": "ev4-rear", "src": "img/ev4/exterior/ev4-rear.jpg", "alt": "KIA EV4 Earth 81 kWh Hatchback Außen – Heckansicht mit Schrägheck-Klappe", "caption": "Außen – Heckansicht (Schrägheck-Klappe)", "content": "Außen: Heck mit Schrägheck-Klappe", "category": "exterior" },
+    { "id": "ev4-dashboard", "src": "img/ev4/interior/ev4-dashboard.jpg", "alt": "KIA EV4 Earth 81 kWh Innenraum – Cockpit mit Instrumententafel und Displays", "caption": "Innenraum – Cockpit und Displays (Instrumententafel)", "content": "Innenraum: Cockpit, Instrumententafel, Displays", "category": "interior" },
+    { "id": "ev4-seats", "src": "img/ev4/interior/ev4-seats.jpg", "alt": "KIA EV4 Earth 81 kWh Innenraum – Vordersitze", "caption": "Innenraum – Vordersitze", "content": "Innenraum: Vordersitze", "category": "interior" },
+    { "id": "ev4-boot-open", "src": "img/ev4/cargo/boot.png", "alt": "KIA EV4 Earth 81 kWh Hatchback Kofferaum offen, 435 l Ladevolumen", "caption": "Kofferaum offen (435 l)", "content": "Kofferaum offen: 435 l Ladevolumen", "category": "cargo" },
+    { "id": "ev4-detail", "src": "img/ev4/details/ev4-detail.jpg", "alt": "KIA EV4 Earth 81 kWh Außen – Detail Leichtmetallräder", "caption": "Außen – Detail Leichtmetallräder", "content": "Außen: Leichtmetallräder", "category": "details" }
+  ]
+}

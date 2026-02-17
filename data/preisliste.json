@@ -1,0 +1,113 @@
+{
+  "source": "KIA Germany EV4 Preisliste",
+  "sourcePdf": "https://www.kia.com/content/dam/kwcms/kme/de/de/assets/contents/utility/Preisliste/Kia-Germany-EV4-Preisliste.pdf",
+  "stand": "1. Februar 2026",
+  "modelljahr": "2026",
+  "note": "Alle Preise in EUR inkl. 19 % MwSt., unverbindlich. Verbindliche Angaben beim Händler.",
+  "variants": [
+    {
+      "battery": "58,3 kWh",
+      "power": "150 kW (204 PS)",
+      "drive": "Frontantrieb",
+      "consumption": "15,3 (19\") / 14,7 (17\") kWh/100 km",
+      "range": "425 (19\") / 440 (17\") km",
+      "trim": "Air",
+      "priceExcl": 31588.24,
+      "priceIncl": 37590
+    },
+    {
+      "battery": "58,3 kWh",
+      "power": "150 kW (204 PS)",
+      "drive": "Frontantrieb",
+      "consumption": "15,3 (19\") / 14,7 (17\") kWh/100 km",
+      "range": "425 (19\") / 440 (17\") km",
+      "trim": "Earth",
+      "priceExcl": 33521.01,
+      "priceIncl": 39890
+    },
+    {
+      "battery": "81,4 kWh",
+      "power": "150 kW (204 PS)",
+      "drive": "Frontantrieb",
+      "consumption": "15,5 (19\") / 14,6 (17\") kWh/100 km",
+      "range": "594 (19\") / 625 (17\") km",
+      "trim": "Air",
+      "priceExcl": 36336.13,
+      "priceIncl": 43240
+    },
+    {
+      "battery": "81,4 kWh",
+      "power": "150 kW (204 PS)",
+      "drive": "Frontantrieb",
+      "consumption": "15,5 (19\") / 14,6 (17\") kWh/100 km",
+      "range": "594 (19\") / 625 (17\") km",
+      "trim": "Earth",
+      "priceExcl": 38268.91,
+      "priceIncl": 45540
+    },
+    {
+      "battery": "81,4 kWh",
+      "power": "150 kW (204 PS)",
+      "drive": "Frontantrieb",
+      "consumption": "15,8 kWh/100 km",
+      "range": "584 km",
+      "trim": "GT-Line",
+      "priceExcl": 41546.22,
+      "priceIncl": 49440
+    }
+  ],
+  "packageByTrim": {
+    "Air": [
+      { "id": "P1", "name": "Winter-Paket", "description": "Wärmepumpe; Sitzheizung vorn; Lenkradheizung", "price": 1100, "dependsOn": [] },
+      { "id": "P2", "name": "DriveWise-ADAS-Paket", "description": "FCA 2.0, HDA 2.0, BCA/RCCA/SEA, Kindersicherung hinten (automatisch)", "price": 890, "dependsOn": ["P1"] }
+    ],
+    "Earth": [
+      { "id": "P3", "name": "Upgrade-Paket", "description": "Privacy-Verglasung; BCA/RCCA/SEA; Fahrersitz Lendenwirbelstütze; Mesh-Komfort-Kopfstützen; Sitzbezüge Stoff/Leder; Sitzheizung hinten", "price": 1350, "dependsOn": [] },
+      { "id": "P4", "name": "Technology-Paket", "description": "Heckklappe elektrisch; Adaptive Dual-LED (IFS); Ambientebeleuchtung sequenziell", "price": 1190, "dependsOn": ["P3"] },
+      { "id": "P5", "name": "Winter-Connect-Paket", "description": "Wärmepumpe; V2L max. 3,6 kW; V2X-Vorbereitung; 220-V-Steckdose Rückbank; Adapter V2L", "price": 1300, "dependsOn": [] },
+      { "id": "P6", "name": "DriveWise-ADAS-Paket", "description": "FCA 2.0; HDA 2.0; PCA; Parksensoren seitlich; Remote Parkassistent; Rundumsichtkamera; BVM; Kindersicherung hinten (automatisch)", "price": 1390, "dependsOn": ["P3", "P4", "P5"] },
+      { "id": "P7", "name": "Design-Paket", "description": "19-Zoll-Leichtmetallräder", "price": 690, "dependsOn": ["P3", "P4", "P5", "P6"] },
+      { "id": "P8", "name": "Sound-Paket", "description": "Harman/Kardon Premium Soundsystem, 8 Lautsprecher", "price": 690, "dependsOn": ["P3", "P4", "P5", "P6"] },
+      { "id": "P9", "name": "Glasdach", "description": "Glasdach mit elektrischem Glasschiebedach (ausstellbar). Earth 81 kWh nur i. V. mit P3–P8", "price": 990, "dependsOn": [] }
+    ],
+    "GT-Line": [
+      { "id": "P9", "name": "Glasdach", "description": "Glasdach mit elektrischem Glasschiebedach (ausstellbar). GT-Line: nur i. V. mit P10, P11, P12", "price": 990, "dependsOn": ["P10", "P11", "P12"] },
+      { "id": "P10", "name": "DriveWise-Park-Paket (GT-Line)", "description": "PCA; Parksensoren seitlich; RSPA; Rundumsichtkamera; BVM; Head-up-Display; Kindersicherung hinten (automatisch)", "price": 1690, "dependsOn": [] },
+      { "id": "P11", "name": "Comfort-Paket", "description": "Memory Fahrersitz; Premium-Relaxation-Sitze; Sitzventilation vorn; Sitzheizung hinten; Heckklappe elektrisch", "price": 1390, "dependsOn": ["P10"] },
+      { "id": "P12", "name": "Connect-Paket", "description": "V2L; V2X-Vorbereitung; 220-V-Steckdose Rückbank; Adapter V2L", "price": 490, "dependsOn": ["P10", "P11"] }
+    ]
+  },
+  "packages": [
+    { "id": "P1", "name": "Winter-Paket", "forTrim": "Air", "description": "Wärmepumpe; Sitzheizung vorn; Lenkradheizung", "price": 1100, "dependsOn": [] },
+    { "id": "P2", "name": "DriveWise-ADAS-Paket", "forTrim": "Air", "description": "FCA 2.0, HDA 2.0, BCA/RCCA/SEA, Kindersicherung hinten (automatisch)", "price": 890, "dependsOn": ["P1"] },
+    { "id": "P3", "name": "Upgrade-Paket", "forTrim": "Earth", "description": "Privacy-Verglasung; BCA/RCCA/SEA; Fahrersitz Lendenwirbelstütze; Mesh-Komfort-Kopfstützen; Sitzbezüge Stoff/Leder; Sitzheizung hinten", "price": 1350, "dependsOn": [] },
+    { "id": "P4", "name": "Technology-Paket", "forTrim": "Earth", "description": "Heckklappe elektrisch; Adaptive Dual-LED (IFS); Ambientebeleuchtung sequenziell", "price": 1190, "dependsOn": ["P3"] },
+    { "id": "P5", "name": "Winter-Connect-Paket", "forTrim": "Earth", "description": "Wärmepumpe; V2L max. 3,6 kW; V2X-Vorbereitung; 220-V-Steckdose Rückbank; Adapter V2L", "price": 1300, "dependsOn": [] },
+    { "id": "P6", "name": "DriveWise-ADAS-Paket", "forTrim": "Earth", "description": "FCA 2.0; HDA 2.0; PCA; Parksensoren seitlich; Remote Parkassistent; Rundumsichtkamera; BVM; Kindersicherung hinten (automatisch)", "price": 1390, "dependsOn": ["P3", "P4", "P5"] },
+    { "id": "P7", "name": "Design-Paket", "forTrim": "Earth", "description": "19-Zoll-Leichtmetallräder", "price": 690, "dependsOn": ["P3", "P4", "P5", "P6"] },
+    { "id": "P8", "name": "Sound-Paket", "forTrim": "Earth", "description": "Harman/Kardon Premium Soundsystem, 8 Lautsprecher", "price": 690, "dependsOn": ["P3", "P4", "P5", "P6"] },
+    { "id": "P9", "name": "Glasdach", "forTrim": "Earth", "description": "Glasdach mit elektrischem Glasschiebedach (ausstellbar). Earth 81 kWh nur i. V. mit P3–P8", "price": 990, "dependsOn": [] },
+    { "id": "P10", "name": "DriveWise-Park-Paket (GT-Line)", "forTrim": "GT-Line", "description": "PCA; Parksensoren seitlich; RSPA; Rundumsichtkamera; BVM; Head-up-Display; Kindersicherung hinten (automatisch)", "price": 1690, "dependsOn": [] },
+    { "id": "P11", "name": "Comfort-Paket", "forTrim": "GT-Line", "description": "Memory Fahrersitz; Premium-Relaxation-Sitze; Sitzventilation vorn; Sitzheizung hinten; Heckklappe elektrisch", "price": 1390, "dependsOn": ["P10"] },
+    { "id": "P12", "name": "Connect-Paket", "forTrim": "GT-Line", "description": "V2L; V2X-Vorbereitung; 220-V-Steckdose Rückbank; Adapter V2L", "price": 490, "dependsOn": ["P10", "P11"] }
+  ],
+  "optionGroups": {
+    "zubehör": [
+      { "name": "Ladeadapter Schutzkontaktstecker auf Typ-2 (10A)", "price": 259 },
+      { "name": "Anhängerkupplung, abnehmbar, inkl. Einbau", "price": 890 },
+      { "name": "Kofferraum-/Heckprojektoren LED", "price": 165 },
+      { "name": "Türprojektoren Kia LED", "price": 140 },
+      { "name": "Türprojektoren GT-Line LED", "price": 140 }
+    ],
+    "lacke": [
+      { "name": "Carraraweiß (WD)", "price": 0 },
+      { "name": "Wolfgrau Metallic (WAF)", "price": 790 },
+      { "name": "Pentametal Metallic (H8G)", "price": 790 },
+      { "name": "Zilinaschwarz Metallic (1K)", "price": 790 },
+      { "name": "Blue Flame Metallic (B3L)", "price": 790 },
+      { "name": "Magmarot Metallic (ARD)", "price": 790 },
+      { "name": "Deluxeweiß Metallic (HW2)", "price": 990 },
+      { "name": "Ivory Silber Matt (IS4)", "price": 1600 }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+/* Light mode, 768px overrides, print */
+/* Light Mode – optional, wenn Nutzer prefers-color-scheme: light */
+@media (prefers-color-scheme: light) {
+    :root {
+        --surface: #ffffff;
+        --surface-elevated: #f1f5f9;
+        --bg-page: #eef2f6;
+        --bg-page-end: #e2e8f0;
+        --text-primary: #3d4a5c;
+        --text-secondary: #5c6370;
+        --text-muted: #6b7280;
+        --text-inverse: #f8fafc;
+        --border: rgba(15, 23, 42, 0.08);
+        --border-strong: rgba(15, 23, 42, 0.12);
+    }
+    body::before {
+        background:
+            radial-gradient(ellipse 140% 70% at 50% -30%, rgba(197, 24, 44, 0.05) 0%, transparent 55%),
+            radial-gradient(ellipse 90% 50% at 100% 0%, rgba(197, 24, 44, 0.02) 0%, transparent 50%);
+    }
+    nav {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--text-primary);
+        border-bottom-color: var(--accent);
+    }
+    nav a { color: var(--text-secondary); }
+    nav .nav-links button.nav-search-trigger { color: var(--text-secondary); }
+    nav .nav-menu-trigger { color: var(--text-primary); }
+    nav .subtitle { color: var(--text-muted); }
+    nav a.is-active { background: var(--accent-muted); }
+    .skip-link { background: var(--surface); color: var(--text-primary); }
+    /* Hero behält dunklen Bildhintergrund – Text bleibt hell lesbar */
+    .page-hero-title,
+    .page-hero-tagline { color: #fafafa; }
+    .page-hero-tagline strong { color: var(--accent); }
+    /* Hero: beide Buttons wie „Zu den Profilen“ – Outline auf dunklem Hero */
+    .page-hero-ctas .btn-primary,
+    .page-hero-ctas .btn-secondary {
+        color: #fafafa;
+        border-color: rgba(255, 255, 255, 0.9);
+        background: transparent;
+    }
+}
+/* --bp-md */
+@media (max-width: 768px) {
+    nav .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+    }
+    nav .nav-links a,
+    nav .nav-links .nav-search-trigger { width: 100%; min-height: var(--touch-target-min); }
+    .container,
+    main.container { padding: 1rem; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .profiles { grid-template-columns: 1fr; }
+    .responsive-table-wrapper { overflow-x: auto; }
+    table { font-size: var(--text-sm); }
+    th, td { padding: 0.55rem 0.65rem; word-break: break-word; }
+    th { font-size: var(--text-xs); }
+}
+
+@media print {
+    .skip-link,
+    .back-to-top,
+    .search-overlay,
+    .page-nav,
+    .nav-menu-trigger,
+    .section-quick-nav,
+    .noscript-notice { display: none !important; }
+    body::before { display: none; }
+    body { background: #fff; }
+    nav { position: static; background: #1a1a1a; }
+    section::before { display: none; }
+    section { box-shadow: none; border: 1px solid #ddd; }
+    .toc::before { display: none; }
+    .site-footer::before { display: none; }
+    section { page-break-inside: avoid; }
+}

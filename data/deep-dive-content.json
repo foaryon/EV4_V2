@@ -1,0 +1,114 @@
+[
+  {
+    "sectionId": "drive-mode",
+    "classification": "B",
+    "sourceId": "evspecs-814",
+    "snippet": "Motor FWD: 150 kW (204 PS), 283 Nm; 0–100 km/h ca. 7,7 s; Vmax 170 km/h.",
+    "url": "https://www.evspecifications.com/en/model/c446399",
+    "label": "Antrieb (evspecifications.com)"
+  },
+  {
+    "sectionId": "drive-mode",
+    "classification": "B",
+    "sourceId": "adac-earth-814",
+    "snippet": "Verbrauch WLTP kombiniert ca. 14,3–14,9 kWh/100 km (81,4 kWh); Effizienzklasse A.",
+    "url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/kia/ev4/1generation/341448/",
+    "label": "WLTP-Verbrauch (ADAC)"
+  },
+  {
+    "sectionId": "regen",
+    "classification": "B",
+    "sourceId": "evspecs-814",
+    "snippet": "Rekuperation: maximale Bremsenergie-Rückgewinnung; Werte je nach Handbuch und Fahrmodus.",
+    "url": "https://www.evspecifications.com/en/model/c446399",
+    "label": "Rekuperation (evspecifications / Handbuch)"
+  },
+  {
+    "sectionId": "adas",
+    "classification": "B",
+    "sourceId": "globalncap-ev4",
+    "snippet": "Latin NCAP 5 Sterne: Erwachsene 82,86 %, Kind 91,84 %, Fußgänger/VRU 69,23 %, Safety Assist 98,26 %. AEB und Spurassist Standard.",
+    "url": "https://www.globalncap.org/news/top-safety-for-kia-ev4-and-volkswagen-new-tiguan-while-toyota-disappoints",
+    "label": "Sicherheitsbewertung (Global NCAP / Latin NCAP)"
+  },
+  {
+    "sectionId": "adas",
+    "classification": "B",
+    "sourceId": "euroncap",
+    "snippet": "Euro NCAP: FCA/AEB reduziert Auffahrunfälle um bis zu 38 % (allgemein für Systeme dieser Art). EV4-Rating über euroncap.com (Make Kia) prüfbar.",
+    "url": "https://www.euroncap.com",
+    "label": "Euro NCAP – Unfallvermeidung"
+  },
+  {
+    "sectionId": "climate",
+    "classification": "B",
+    "sourceId": "evspecs-814",
+    "snippet": "Wärmepumpe in P5 (Earth) bzw. P1 (Air); Verbrauch und Reichweite abhängig von Heizung/Klima (WLTP kombiniert ca. 14,3–14,9 kWh/100 km).",
+    "url": "https://www.evspecifications.com/en/model/c446399",
+    "label": "Klima/Verbrauch (evspecifications)"
+  },
+  {
+    "sectionId": "lighting",
+    "classification": "B",
+    "sourceId": "kia-uk-specs",
+    "snippet": "LED-Scheinwerfer; optional Matrix-/Intelligentes Fernlicht je nach Ausstattung (Air/Earth/GT-Line).",
+    "url": "https://www.kia.com/uk/new-cars/ev4/specification/",
+    "label": "Beleuchtung (KIA UK Specs)"
+  },
+  {
+    "sectionId": "parking",
+    "classification": "B",
+    "sourceId": "euroncap",
+    "snippet": "Rückfahrkamera und Parksensoren tragen zu Safety-Assist-Bewertung bei; UNECE R158 (Rückfahrkamera) ab 2024 EU-pflicht.",
+    "url": "https://www.euroncap.com",
+    "label": "Parken & Regulierung (Euro NCAP / UNECE R158)"
+  },
+  {
+    "sectionId": "battery",
+    "classification": "B",
+    "sourceId": "evspecs-814",
+    "snippet": "DC 350 kW 10–80 % ca. 31 min; AC 10,5 kW 10–100 % ca. 7 h 15 min. Max. Ladeleistung DC 127 kW.",
+    "url": "https://www.evspecifications.com/en/model/c446399",
+    "label": "Ladezeiten (evspecifications.com)"
+  },
+  {
+    "sectionId": "battery",
+    "classification": "B",
+    "sourceId": "kia-eu-presales",
+    "snippet": "WLTP-Reichweite bis 630 km (81,4 kWh); 10–80 % DC in 29–31 min.",
+    "url": "https://www.kia.com/eu/new-cars/ev4-presales/",
+    "label": "Reichweite & DC-Laden (KIA EU Presales)"
+  },
+  {
+    "sectionId": "battery",
+    "classification": "B",
+    "sourceId": "meinauto-hatchback",
+    "snippet": "Garantie Batterie 8 Jahre; Garantie Antrieb 7 Jahre; Gesamtfahrleistung Garantie 150.000 km.",
+    "url": "https://www.meinauto.de/kia/neuwagen/ev4/angebote/kia-e-4/technische-daten",
+    "label": "Garantien (meinauto.de EV4 Hatchback)"
+  },
+  {
+    "sectionId": "battery",
+    "classification": "C",
+    "sourceId": "ams-ev4",
+    "snippet": "Fahrbericht: DC-Laden 10–80 % ca. 31 min; Reichweite WLTP bis 625 km; Ladeleistung „solide, aber nicht herausragend“.",
+    "url": "https://www.auto-motor-und-sport.de/fahrbericht/kia-ev4-erster-test-komfortabel-und-schwungvoll-muss-der-id-3-zittern/",
+    "label": "Ladeleistung im Test (auto-motor-und-sport)"
+  },
+  {
+    "sectionId": "navigation",
+    "classification": "B",
+    "sourceId": "kia-uk-specs",
+    "snippet": "Navigation und Fahrerassistenz (NSCC, Routen-basiert) je nach Ausstattung; Details im Handbuch (Klassifikation A).",
+    "url": "https://www.kia.com/uk/new-cars/ev4/specification/",
+    "label": "Navigation & Assistenz (KIA UK)"
+  },
+  {
+    "sectionId": "personalization",
+    "classification": "B",
+    "sourceId": "meinauto-ev4",
+    "snippet": "Fahrerprofile und Individualisierung über Infotainment; 2× 12,3-Zoll-Displays, Head-up-Display, induktive Ladung (je nach Ausstattung).",
+    "url": "https://www.meinauto.de/kia/neuwagen/ev4/angebote/kia-e-4/technische-daten",
+    "label": "Ausstattung/Personalisierung (meinauto.de)"
+  }
+]

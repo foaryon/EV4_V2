@@ -1,0 +1,107 @@
+/* Design-Tokens: KIA/EV – Wix-Level Redesign. Modular scale, 8px grid, section padding. */
+:root {
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+  --touch-target-min: 44px;
+
+  /* Typography – Sora (Headings) + Plus Jakarta (Body). Modular scale ~1.2 */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', var(--font-sans);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2rem;
+  --text-hero: clamp(1.1rem, 0.6rem + 1.5vw, 1.35rem);
+  --text-section-title: clamp(1.35rem, 0.85rem + 1.25vw, 1.85rem);
+  /* Hero H1 – clear hierarchy for Wix-style hero */
+  --text-hero-h1: clamp(1.75rem, 1.25rem + 2vw, 2.5rem);
+  /* Wix-style: single source for section rhythm (5rem) */
+  --section-padding: 5rem;
+  --section-gap: var(--section-padding);
+  --block-gap: 1.5rem;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 1.65;
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing – 8px base (8, 16, 24, 32, 40, 48, 64, 80, 96, 128) */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+  --space-16: 8rem;    /* 128px */
+
+  /* Colors – Wix Technologieunternehmen: Light-first, KIA Red Akzent */
+  --primary: #f1f5f9;
+  --primary-soft: #e2e8f0;
+  --primary-glow: rgba(197, 24, 44, 0.08);
+  --accent: #C5182C;
+  --accent-hover: #a81425;
+  --accent-light: #e02d42;
+  --accent-muted: rgba(197, 24, 44, 0.08);
+  --accent-muted-strong: rgba(197, 24, 44, 0.18);
+  --surface: #ffffff;
+  --surface-elevated: #f8fafc;
+  --surface-overlay: rgba(255, 255, 255, 0.96);
+  --backdrop: rgba(15, 23, 42, 0.4);
+  --bg-page: #f8fafc;
+  --bg-page-end: #f1f5f9;
+  --text-primary: #3d4a5c;
+  --text-secondary: #5c6370;
+  --text-muted: #6b7280;
+  --text-inverse: #f8fafc;
+  --success: #22c55e;
+  --success-muted: rgba(34, 197, 94, 0.12);
+  --warning: #eab308;
+  --error: #ef4444;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.12);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 48px var(--primary-glow);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.15s;
+  --duration-normal: 0.25s;
+  --duration-slow: 0.4s;
+
+  /* Buttons / Cards – component tokens */
+  --btn-primary-bg: var(--accent);
+  --btn-primary-color: var(--text-inverse);
+  --btn-primary-hover-bg: var(--accent-hover);
+  --btn-secondary-border: var(--accent);
+  --btn-secondary-color: var(--accent);
+  --card-radius: var(--radius-2xl);
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
+}

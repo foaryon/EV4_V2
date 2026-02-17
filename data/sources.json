@@ -1,0 +1,209 @@
+[
+  {
+    "id": "kia-manual-de",
+    "name": "Bedienungsanleitungen (DE)",
+    "url": "https://www.kia.com/de/service/garantien-und-anleitungen/bedienungsanleitungen/",
+    "classification": "A",
+    "type": "manual",
+    "lastChecked": "2026-01-30",
+    "notes": "Primärquelle für Einstellungen; Modell/Jahr wählbar"
+  },
+  {
+    "id": "kia-manual-online",
+    "name": "Owner Manual Online (engl.)",
+    "url": "https://ownersmanual.kia.com/",
+    "classification": "A",
+    "type": "manual",
+    "lastChecked": "2026-01-30",
+    "notes": "Modell EV4 wählen; Ladevorgang, EV-Einstellungen"
+  },
+  {
+    "id": "kia-eu-presales",
+    "name": "KIA EU Presales EV4",
+    "url": "https://www.kia.com/eu/new-cars/ev4-presales/",
+    "classification": "B",
+    "type": "official",
+    "lastChecked": "2026-01-30",
+    "notes": "Reichweite 630 km, Ladezeiten 10–80 %, Trims"
+  },
+  {
+    "id": "kia-uk-specs",
+    "name": "KIA UK Specifications",
+    "url": "https://www.kia.com/uk/new-cars/ev4/specification/",
+    "classification": "B",
+    "type": "official",
+    "lastChecked": "2026-01-30",
+    "notes": "Technische Daten, Ausstattungslinien Air/Earth/GT-Line"
+  },
+  {
+    "id": "kia-ie-specs",
+    "name": "KIA IE Specifications",
+    "url": "https://www.kia.com/ie/new-cars/ev4/specifications/",
+    "classification": "B",
+    "type": "official",
+    "lastChecked": "2026-01-30",
+    "notes": "Spezifikationen Irland/EU"
+  },
+  {
+    "id": "kia-press",
+    "name": "KIA Press Office (DE)",
+    "url": "https://press.kia.com/",
+    "classification": "B",
+    "type": "official",
+    "lastChecked": "2026-01-30",
+    "notes": "Timeout bei Abruf; Suche EV4 für Spec Sheet"
+  },
+  {
+    "id": "kia-rettungskarten",
+    "name": "Rettungskarten (DE)",
+    "url": "https://www.kia.com/de/service/service-und-wartung/rettungsblaetter/",
+    "classification": "B",
+    "type": "official",
+    "lastChecked": "2026-01-30",
+    "notes": "Rettungsblätter für Rettungsdienste, Hochvoltsystem"
+  },
+  {
+    "id": "adac-ev4",
+    "name": "ADAC Autokatalog – KIA EV4",
+    "url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/kia/ev4/",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Technische Daten 58,3 / 81,4 kWh, Reichweite, Maße"
+  },
+  {
+    "id": "adac-earth-814",
+    "name": "ADAC EV4 Earth 81,4 kWh",
+    "url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/kia/ev4/1generation/341448/",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Konkrete Variante Earth 81,4 kWh"
+  },
+  {
+    "id": "adac-earth-583",
+    "name": "ADAC EV4 Earth 58,3 kWh",
+    "url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/kia/ev4/1generation/341447/",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Variante Earth 58,3 kWh"
+  },
+  {
+    "id": "euroncap",
+    "name": "Euro NCAP",
+    "url": "https://www.euroncap.com",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Sicherheitsbewertung; EV4 über Make Kia suchen"
+  },
+  {
+    "id": "euroncap-ratings",
+    "name": "Euro NCAP Latest Safety Ratings (Kia)",
+    "url": "https://www.euroncap.com/en/ratings-rewards/latest-safety-ratings/?selectedMake=7292&selectedMakeName=Kia&selectedModel=0&selectedModelName=Model",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Kia-Modelle; EV4-Rating wenn veröffentlicht"
+  },
+  {
+    "id": "globalncap-ev4",
+    "name": "Global NCAP / Latin NCAP – Kia EV4",
+    "url": "https://www.globalncap.org/news/top-safety-for-kia-ev4-and-volkswagen-new-tiguan-while-toyota-disappoints",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "EV4 5-Sterne Latin NCAP; Adult 82,86 %, Child 91,84 %, Safety Assist 98,26 %"
+  },
+  {
+    "id": "unece-r154",
+    "name": "UNECE Regulation No. 154 (WLTP)",
+    "url": "https://unece.org/transport/documents/2021/02/standards/un-regulation-no-154-worldwide-harmonized-light-vehicles-test",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "WLTP-Messverfahren Verbrauch/Reichweite"
+  },
+  {
+    "id": "eurlex-wltp",
+    "name": "EUR-Lex WLTP und RDE",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=legissum:4390810",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "EU-Recht WLTP und Real Driving Emissions"
+  },
+  {
+    "id": "evspecs-814",
+    "name": "evspecifications.com (81,4 kWh)",
+    "url": "https://www.evspecifications.com/en/model/c446399",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Motor, Batterie, Ladezeiten, Maße, Gewichte"
+  },
+  {
+    "id": "evspecs-583",
+    "name": "evspecifications.com (58,3 kWh)",
+    "url": "https://www.evspecifications.com/en/model/ac74393",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Kleine Batterie-Variante"
+  },
+  {
+    "id": "meinauto-ev4",
+    "name": "meinauto.de – EV4 Technische Daten",
+    "url": "https://www.meinauto.de/kia/neuwagen/ev4/angebote/kia-e-4/technische-daten",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "Technische Daten, Maße, Garantien, Farben"
+  },
+  {
+    "id": "meinauto-hatchback",
+    "name": "meinauto.de – EV4 Hatchback (Schrägheck) Technische Daten",
+    "url": "https://www.meinauto.de/kia/neuwagen/ev4/angebote/kia-e-4/technische-daten",
+    "classification": "B",
+    "type": "neutral",
+    "lastChecked": "2026-01-30",
+    "notes": "EV4 Hatchback (Schrägheck): 204 PS, 150 kW, Reichweite, Garantie Batterie 8 Jahre"
+  },
+  {
+    "id": "ev4-forum",
+    "name": "EV4-Forum (DE)",
+    "url": "https://www.ev4-forum.de/",
+    "classification": "C",
+    "type": "community",
+    "lastChecked": "2026-01-30",
+    "notes": "KIA EV4 Elektro-Forum; Kaufberatung, Reichweite, Zubehör, Tests"
+  },
+  {
+    "id": "ams-ev4",
+    "name": "auto-motor-und-sport – Kia EV4 Test",
+    "url": "https://www.auto-motor-und-sport.de/fahrbericht/kia-ev4-erster-test-komfortabel-und-schwungvoll-muss-der-id-3-zittern/",
+    "classification": "C",
+    "type": "community",
+    "lastChecked": "2026-01-30",
+    "notes": "Fahrbericht: Reichweite WLTP bis 625 km, 204 PS, 31 min DC 10–80 %"
+  },
+  {
+    "id": "insideevs-ev4",
+    "name": "InsideEVs – Kia EV4 Test",
+    "url": "https://insideevs.de/reviews/772733/kia-ev4-test-fahrbericht-kompakt/",
+    "classification": "C",
+    "type": "community",
+    "lastChecked": "2026-01-30",
+    "notes": "Fahrbericht Kompaktklasse, Reichweite, Ladeleistung"
+  },
+  {
+    "id": "goingelectric",
+    "name": "GoingElectric Forum – EV4",
+    "url": "https://www.goingelectric.de/forum/viewtopic.php?f=177&t=96656",
+    "classification": "C",
+    "type": "community",
+    "lastChecked": "2026-01-30",
+    "notes": "Presse- und Fahrberichte, Besitzer-Diskussion"
+  }
+]

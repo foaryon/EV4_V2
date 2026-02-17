@@ -1,0 +1,100 @@
+[
+  {
+    "version": "v2.12.0",
+    "date": "Januar 2026",
+    "changes": "WIX Design Push (example/WIX.html + app.min.css): Analyse in docs/WIX_DESIGN_ANALYSIS.md. :root: --bg-page/#f9fafa, --text-primary/#20303c, --border/#eaeaea, --text-muted/#595d70, --wix-primary/--wix-nav-shadow/--wix-card-shadow/--wix-cookie-shadow. body: 16px/1.5, 14px unter 1100px. Nav: Wix-Toolbar-Schatten (0 2px 18px rgba(129,162,182,.2)), border #eaeaea, 72px/48px Desktop. TOC/Sektionen/Hero-Stats/Footer/Modals/Suche: border-radius 6px, Wix-Karten-Schatten, border var(--border). theme-color #f9fafa."
+  },
+  {
+    "version": "v2.11.1",
+    "date": "Januar 2026",
+    "changes": "Wix-Konsistenz Light: Tabellen-Header (th) und thead mit dunkler Schrift auf hellem Grund (--text-primary statt --text-inverse), damit Header in Light Mode lesbar sind; Changelog-Modal-Tabelle th angeglichen; Dark Mode Footer mit background: var(--surface) und color: var(--text-primary) für einheitliches dunkles Footer-Layout."
+  },
+  {
+    "version": "v2.11.0",
+    "date": "Januar 2026",
+    "changes": "Wix-HTML-Vorlage (example/WIX.html) umgesetzt: Hero-Stats-Strip „EV4 in Zahlen“ (3 Profile, 18 Parameter, 9 Kategorien, 22 Quellen) wie Technologieunternehmen-Template; Buttons Wix-Style (border-radius 18px, min-width 84px, Wix-Shadow); Secondary-Button schwarzer Rand (Light), Fokus-Ring 0 0 0 1px + 3px Akzent; TOC/Sektionen/Modals: border-radius 10px, box-shadow -8px -7px 20px 0 rgba(0,0,0,0.1), border 1px solid rgba(0,0,0,0.1); Changelog- und Such-Modal angeglichen."
+  },
+  {
+    "version": "v2.10.0",
+    "date": "Januar 2026",
+    "changes": "Wix Technologieunternehmen Look: Light-first als Standard. :root auf helles, cleanes Corporate-Design umgestellt (--bg-page #f8fafc, --surface #ffffff, --text-primary #0f172a, --border/--shadow hell); Nav und Footer standardmäßig hell mit Akzent-Linie; Hero-Text immer hell (#fafafa) auf dunklem Bild-Overlay; Dark Mode in @media (prefers-color-scheme: dark) ausgelagert; meta theme-color #f8fafc; Such- und Changelog-Overlay nutzen var(--backdrop); scss/_tokens.scss synchronisiert."
+  },
+  {
+    "version": "v2.9.0",
+    "date": "Januar 2026",
+    "changes": "Wix-Level Redesign Phasen 11–20 (5k–10k Plan): Light Mode (Hero-Text lesbar); Print (Nav/Drawer/Sidebar/Quick-Nav ausgeblendet); Responsive (th/td, nav-links gap aus Tokens); Galerie, Quellen, Preisliste, Recommended-Box, Profile-Cards, Justification, Badges, Footer, Changelog-Modal, Search-Overlay, Lightbox – padding/gap/margin/font-size durchgängig auf var(--space-*), var(--text-*) umgestellt; Back-to-Top Position aus Tokens. Keine Newsletter-/Kontakt-Platzhalter (Inhalte EV4-spezifisch). WIX_ITERATIONS_ABNAHME.md um Fortschrittsprotokoll Phasen 11–20 ergänzt."
+  },
+  {
+    "version": "v2.8.0",
+    "date": "Januar 2026",
+    "changes": "Wix 99% Iterations-Redesign (Phasen 1–10): Design-Tokens Single Source (--section-padding, --space-*, --text-hero-h1, --text-section-title, --btn-primary-bg, --btn-secondary-border, --card-shadow-hover); Nav mit Brand, Sidebar „Auf dieser Seite“, Fokus-Styles; Hero Full-Bleed, eine H1, Primary/Secondary CTAs; Sektionen einheitlicher Rhythmus, Scroll-Reveal mit prefers-reduced-motion; TOC Karten-Grid mit Hover-Lift; Komponenten (Buttons, Karten, Tabellen) über Tokens; Footer mehrspaltig, Tokens; Interaktion und Feinschliff (Light, Print, Breakpoints). Abnahme: WIX_ITERATIONS_ABNAHME.md."
+  },
+  {
+    "version": "v2.7.0",
+    "date": "Januar 2026",
+    "changes": "Professionalität & Vollständigkeit: (1) Fahrzeugdaten: data/ev4-earth-specs.json und Unterabschnitt „Fahrzeugdaten KIA EV4 Earth 81 kWh (P3–P6)“ in #quellen mit Paket-Tabelle. (2) Galerie: Sektion #galerie (Fahrzeugbilder KIA EV4 Earth), img/ev4/ (exterior, interior, trunk, details), data/gallery.json, responsive Grid, Lightbox in js/main.js, CSS .galerie-section/.galerie-grid. (3) Preisliste: Sektion #preisliste mit Modellvarianten-, Paket- und Optionen-Tabellen aus data/preisliste.json; Hinweis unverbindlich + Link zur PDF. (4) Nav/TOC um Galerie und Preisliste ergänzt; Schema.org um Product (brand, vehicleEngine, vehicleConfiguration etc.) erweitert; Hero-Tagline um Earth 81 kWh (P3–P6) ergänzt. (5) README und docs/DATA_README.md um ev4-earth-specs, gallery, preisliste und Bildquellen erweitert; CSS .preisliste-section/.preisliste-disclaimer."
+  },
+  {
+    "version": "v2.5.0",
+    "date": "Januar 2026",
+    "changes": "BETA in Hauptversion: Quellen- und Inline-Box-Logik aus index-beta.html in index.html übernommen. Quellenverzeichnis auf 22 Quellen erweitert (KIA UK/IE/Press, ADAC Earth, Euro/Global NCAP, UNECE, EUR-Lex, evspecifications, meinauto, EV4-Forum, AMS, InsideEVs, GoingElectric); Technische Eckdaten um Verbrauch WLTP, DC max. Ladeleistung, Garantien, Latin NCAP ergänzt; Quellen-Intro mit Verweis auf Inline-Boxen und .quellen-methodik-ref; 14 Inline-Boxen „Externe Quelle (B/C)“ in den Detailabschnitten 1–9 (data-source-id, source-citation-label); Nav-Subtitle und Meta-Description um „Quellen B/C“ ergänzt; Footer um Hinweis Zusatzquellen B/C; CSS unverändert (bereits .source-inline-box, .quellen-methodik-ref). index-beta.html bleibt als Backup."
+  },
+  {
+    "version": "v2.4.0",
+    "date": "Januar 2026",
+    "changes": "Quellen validiert (docs/QUELLEN_VALIDIERUNG.md); neue Sektion „Quellen und technische Daten“ (#quellen) mit Quellenverzeichnis und technischen Eckdaten EV4 81,4 kWh; data/sources.json und data/deep-dive-content.json; Methodik-Tabelle um Zeile B (KIA Specs/ADAC/evspecifications/Euro NCAP) erweitert; Inline-Quellenbox Batterie (evspecifications Ladezeiten); CSS .quellen-section, .quellen-table, .source-inline-box, .source-ref; Nav/TOC/Sidebar um Quellen-Link ergänzt; docs/DATA_README.md; Validierungs-Abschnitt in docs/QUELLEN_DEEP_DIVE.md."
+  },
+  {
+    "version": "v2.3.0",
+    "date": "Januar 2026",
+    "changes": "<strong>500-Plan Phase 8:</strong> Audit-Kommentar für Design-Tokens in <code>:root</code>; Breadcrumb in allen 9 Detail-Sektionen (Detail &gt; 1.–9.); ADAS-Schnellzugriff mit Mini-Liste (SCC, HDA, LKA, FCA, BCA) und IDs an Unterüberschriften; CSS für <code>.section-quick-nav</code>; Abschnittsnummern 1–9; Print Quick-Nav ausgeblendet; README/Changelog aktualisiert."
+  },
+  {
+    "version": "v2.2.0",
+    "date": "Januar 2026",
+    "changes": "<strong>Design-Modernisierung (66 Iterationen):</strong> Design-Tokens Single Source of Truth; Breakpoints in allen Media Queries dokumentiert; Hamburger-Menü mit Fokus und Escape/Backdrop; TOC-Intro gekürzt, aria-describedby; Breadcrumb und Keyboard-Hinweis im Footer; TOC-Karten Hover-Lift, Profile-Cards Streifen, Recommended-Box Abstand; details/summary Animation (reduced-motion); Zeile Ladegrenze hervorgehoben; Link Ende Methodik; Fokusfalle Suche, Changelog Fokus-Rückkehr; Print: Sidebar/Hamburger ausgeblendet; Table focus-visible; README Design-Tokens und Breakpoints."
+  },
+  {
+    "version": "v2.1.2",
+    "date": "Januar 2026",
+    "changes": "Heuristischer Audit (100+ Szenarien): Sprungziel-Highlight auch bei Klick auf „Empf. Einstellungen“ (<code>section:has(#profile-checklist:target)</code>); Tabellen auf schmalen Viewports horizontal scrollbar belassen (Konflikt <code>table-layout</code> in zweiter 768px-Regel behoben)."
+  },
+  {
+    "version": "v2.1.1",
+    "date": "Januar 2026",
+    "changes": "Audit: <code>scope=\"col\"</code> an allen Tabellen-<code>th</code> ergänzt (Barrierefreiheit); Inline-Style im Changelog in Klasse <code>ul.changelog-td</code> ausgelagert."
+  },
+  {
+    "version": "v2.1.0",
+    "date": "Januar 2026",
+    "changes": "<strong>Design-Update 2026:</strong> Erweiterte Design-Tokens (Schatten, Easing, Radius); Seitenhintergrund mit Gradient und dezenten Akzent-Orbs; Nav mit Glassmorphism (backdrop-filter); Hero-Strip mit Tagline; TOC/Sektionen/Profile-Cards mit Premium-Look (größere Radien, linke Akzentlinie, stärkere Schatten); Tabellen mit Gradient-Header und sanften Hover-Übergängen; Footer mit Gradient und Akzentlinie; Smooth Scroll + <code>scroll-padding</code>; Fokus-Styles (<code>focus-visible</code>) für Barrierefreiheit; <code>:target</code>-Highlight beim Anspringen; Dark Mode angepasst; <code>prefers-reduced-motion</code> berücksichtigt; Print-Styles optimiert; Meta <code>theme-color</code> und <code>description</code>."
+  },
+  {
+    "version": "v2.0.2",
+    "date": "Januar 2026",
+    "changes": "Bereinigung: ungenutzte ID <code>recommended-summary</code> und Klasse <code>profile-matrix</code> entfernt; historischer HTML-Kommentar (Kurzansicht-Karten) entfernt – nur Essenzielles behalten."
+  },
+  {
+    "version": "v2.0.1",
+    "date": "Januar 2026",
+    "changes": "Konsistenz: <strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> in allen verbleibenden Unterabschnitten einklappbar gemacht (Batterie: Ladegrenze &amp; Ladestrom, Batteriekonditionierung; Navigation: NSCC; Personalisierung: Benutzerprofile, Auto Hold)."
+  },
+  {
+    "version": "v2.0",
+    "date": "Januar 2026",
+    "changes": [
+      "Kurzansicht-Karten entfernt; eine <strong>Vollständige Einstellungsliste</strong> (Checkliste) als zentrale Übersicht.",
+      "<strong>Begründungen</strong> pro Einstellung durchgehend einklappbar (<code>details/summary</code>).",
+      "<strong>Technische Funktion &amp; Systeminteraktionen</strong> und <strong>Auswirkungsanalyse</strong> pro Einstellung einklappbar – Kerninfos (Optionen, ✓ Optimale Einstellungen) im Vordergrund.",
+      "HTML-Struktur bereinigt (Schließ-Tags <code>details</code> in richtige Sektionen verschoben).",
+      "Nav und TOC vereinfacht (ein Eintrag „Empf. Einstellungen“ / Checkliste).",
+      "Section-Intro am Anfang von „Drive Mode“ entfernt (Handbuch-Hinweis in Methodik/Footer).",
+      "<strong>Changelog-Sektion</strong> ergänzt; Titel ohne Versions-Suffix (Versionsinfo hier)."
+    ]
+  },
+  {
+    "version": "v1.x",
+    "date": "–",
+    "changes": "Initiale Version; forensische Validierung gegen Bedienungsanleitung; 3 Fahrprofile, 9 Detailabschnitte, Evidenzhierarchie."
+  }
+]

@@ -1,0 +1,165 @@
+/* Page Hero – Full-bleed EV4 background, 100vh, scrollbar, H1 + Subheadline + CTAs (Wix-style).
+   Background image: img/ev4/exterior/ev4-side.jpg (1920×1080, full-res; preload in index.html).
+   Subpath deployment: CSS url() is relative to css/main.css; for /ev4/ base path, ensure img is at /ev4/img/ and consider build-time path or base href. */
+.page-hero {
+  margin-bottom: var(--section-gap);
+  text-align: center;
+  position: relative;
+  padding: var(--space-8) var(--space-3) var(--space-10);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  overflow: visible;
+  background-image: url('../img/ev4/exterior/ev4-side.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+  background-attachment: scroll;
+}
+@media (max-width: 768px) {
+  .page-hero {
+    background-position: center 35%;
+    padding: var(--space-6) var(--space-2) var(--space-8);
+  }
+}
+@media (max-width: 480px) {
+  .page-hero {
+    background-position: center 30%;
+    padding: var(--space-6) var(--space-2) var(--space-8);
+  }
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(5, 5, 7, 0.55) 0%,
+    rgba(5, 5, 7, 0.72) 45%,
+    rgba(5, 5, 7, 0.88) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-hero .page-hero-title,
+.page-hero .page-hero-tagline,
+.page-hero .page-hero-line,
+.page-hero .page-hero-ctas {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero-h1);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+  max-width: 28ch;
+  margin: 0 auto 0.75rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 0, 0, 0.25);
+}
+
+.page-hero-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.8rem + 0.5vw, 1.15rem);
+  font-weight: var(--weight-normal);
+  color: rgba(250, 250, 250, 0.92);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-relaxed);
+  max-width: 42rem;
+  margin: 0 auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.page-hero-tagline strong { color: var(--accent); font-weight: var(--weight-semibold); }
+
+.page-hero-line {
+  width: 64px;
+  height: 2px;
+  margin: 1.25rem auto;
+  background: var(--accent);
+  border-radius: 0;
+}
+
+.page-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary,
+.page-hero-ctas .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  font-family: var(--font-sans);
+  color: var(--btn-primary-color);
+  background: var(--btn-primary-bg);
+  border: none;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:hover,
+.page-hero-ctas .btn-primary:hover {
+  background: var(--btn-primary-hover-bg);
+  transform: translateY(-1px);
+}
+.btn-primary:focus-visible,
+.page-hero-ctas .btn-primary:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+.btn-secondary,
+.page-hero-ctas .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  font-family: var(--font-sans);
+  color: var(--btn-secondary-color);
+  background: transparent;
+  border: 2px solid var(--btn-secondary-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-out), color var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+}
+.btn-secondary:hover,
+.page-hero-ctas .btn-secondary:hover {
+  background: var(--accent-muted);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+.btn-secondary:focus-visible,
+.page-hero-ctas .btn-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Legacy: tagline-only hero (no H1/CTAs) still works */
+.page-hero-tagline:only-of-type {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 1.6rem);
+  font-weight: var(--weight-bold);
+}

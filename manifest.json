@@ -1,0 +1,11 @@
+{
+  "name": "KIA EV4 2026 EU – Systemanalyse & Optimale Profile",
+  "short_name": "KIA EV4 Systemanalyse",
+  "description": "Vollständige forensische Systemanalyse, optimale Einstellungen und 3 Fahrprofile (Alltag, Langstrecke, Wetter). Handbuch-verifiziert.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0e12",
+  "theme_color": "#0a0e12",
+  "lang": "de",
+  "orientation": "any"
+}

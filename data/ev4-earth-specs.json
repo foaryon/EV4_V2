@@ -1,0 +1,59 @@
+{
+  "variant": "KIA EV4 Earth 81,4 kWh",
+  "source": "Handbuch, KIA EU Presales, ADAC, evspecifications, KIA Germany Preisliste PDF",
+  "classificationBase": "A/B",
+  "powertrain": {
+    "motor": "150 kW (204 PS) / 283 Nm",
+    "drive": "FWD (Frontantrieb)",
+    "source": "ADAC, evspecifications"
+  },
+  "battery": {
+    "capacityNominal": "81,4 kWh",
+    "source": "KIA, ADAC, evspecifications"
+  },
+  "wltp": {
+    "consumptionCombined": "14,6–15,5 kWh/100 km (je nach Felge 17\"/19\")",
+    "rangeCombined": "594 (19\") / 625 (17\") km",
+    "source": "KIA Germany Preisliste, KIA EU Presales"
+  },
+  "charging": {
+    "dc350kW_10_80": "ca. 29–31 min",
+    "ac105kW_10_100": "ca. 7 h 15 min",
+    "dcMaxPower": "127 kW",
+    "source": "KIA EU Presales, evspecifications"
+  },
+  "dimensions": {
+    "source": "evspecifications, ADAC",
+    "note": "Maße je nach Quelle; siehe Quellenverzeichnis."
+  },
+  "packagesP3toP6": {
+    "description": "Ausstattungspakete für Earth (Quelle: KIA Germany EV4 Preisliste PDF)",
+    "P3": {
+      "name": "Upgrade-Paket",
+      "priceEur": 1350,
+      "highlights": ["Privacy-Verglasung", "BCA/RCCA/SEA", "Fahrersitz Lendenwirbelstütze elektrisch", "Mesh-Komfort-Kopfstützen", "Sitzbezüge Stoff/Leder", "Sitzheizung hinten"]
+    },
+    "P4": {
+      "name": "Technology-Paket",
+      "priceEur": 1190,
+      "requires": ["P3"],
+      "highlights": ["Heckklappe elektrisch, höhenverstellbar", "Adaptive Dual-LED (IFS)", "Ambientebeleuchtung sequenziell"]
+    },
+    "P5": {
+      "name": "Winter-Connect-Paket",
+      "priceEur": 1300,
+      "highlights": ["Wärmepumpe", "V2L max. 3,6 kW", "V2X-Vorbereitung (V2H/V2G)", "220-V-Steckdose Rückbank", "Adapter V2L"]
+    },
+    "P6": {
+      "name": "DriveWise-Park-Paket",
+      "priceEur": 1390,
+      "requires": ["P3", "P4", "P5"],
+      "highlights": ["FCA 2.0", "HDA 2.0", "PCA", "Parksensoren seitlich", "Remote Parkassistent", "Rundumsichtkamera", "BVM", "Kindersicherung hinten (automatisch)"]
+    }
+  },
+  "warranty": {
+    "battery": "8 Jahre",
+    "antrieb": "7 Jahre",
+    "source": "meinauto, KIA"
+  }
+}
