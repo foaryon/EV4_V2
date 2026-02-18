@@ -1,6 +1,7 @@
 # WIX Technologieunternehmen – Design-Analyse
 
-Quelle: `example/WIX.html` (Viewer-Wrapper) + externes `app.min.css` (marketing-template-viewer).
+**Stand:** 2026  
+**Quelle:** `example/WIX.html` (Viewer-Wrapper) + externes `app.min.css` (marketing-template-viewer)
 
 ## Hinweis
 WIX.html lädt das **Template 2855** in einem iframe von `https://www.wix.com/templatesde/2855-tech-company-v`. Die sichtbaren Styles in WIX.html bzw. app.min.css betreffen die **Viewer-UI** (Toolbar, Popup, Cookie-Bar), nicht den Inhalt der Template-Seite. Für ein „Wix-Level“-Look übernehmen wir die Viewer-Tokens (Hintergründe, Schatten, Typo, Fokus, Buttons).

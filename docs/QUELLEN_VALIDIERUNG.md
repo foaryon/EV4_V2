@@ -1,6 +1,8 @@
 # Validierung der Quellen (Deep Dive)
 
-Systematische Prüfung der in [QUELLEN_DEEP_DIVE.md](QUELLEN_DEEP_DIVE.md) genannten URLs. Abruf per GET; Status und Datum dokumentiert.
+**Stand:** Januar 2026  
+**Gegenstand:** Systematische Prüfung der in [QUELLEN_DEEP_DIVE.md](QUELLEN_DEEP_DIVE.md) genannten URLs  
+**Methodik:** Abruf per GET; Status und Datum dokumentiert
 
 ---
 
@@ -49,3 +51,7 @@ Systematische Prüfung der in [QUELLEN_DEEP_DIVE.md](QUELLEN_DEEP_DIVE.md) genan
 | ownersmanual.kia.com (EN) | Forward safety: Standard / Late |
 | ADAC EV4 Earth 341448 | 81,4 kWh, 150 kW, 7,7 s, 170 km/h bestätigt |
 | evspecifications.com | Captcha blockiert Abruf (Stand Feb 2026) |
+
+---
+
+*Validierung durchgeführt per GET-Abruf. URLs können sich ändern; bei Integration erneut prüfen.*

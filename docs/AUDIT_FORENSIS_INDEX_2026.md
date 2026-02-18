@@ -1,6 +1,6 @@
 # Forensischer Audit: index.html – Daten, Einstellungen, Empfehlungen
 
-**Stand:** 2026-01-30  
+**Stand:** 30. Januar 2026  
 **Gegenstand:** Vollständige Prüfung aller in `index.html` hinterlegten Daten, Einstellungen, Einstellungsmöglichkeiten und -empfehlungen je Profil. Eliminierung von False Positives, Fakes und Falschannahmen.
 
 ---
