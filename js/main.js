@@ -8,6 +8,16 @@
     const BACK_TO_TOP_THRESHOLD = 400;
     const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /** Scrolls element into view so its top sits below the sticky nav (avoids scroll-margin
+     * showing the previous section when sections are adjacent, e.g. Galerie before Preisliste). */
+    function scrollToBelowNav(target) {
+        var nav = document.querySelector('nav');
+        var navHeight = nav ? nav.offsetHeight : 0;
+        var rect = target.getBoundingClientRect();
+        var scrollTop = window.scrollY + rect.top - navHeight;
+        window.scrollTo({ top: Math.max(0, scrollTop), behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+    }
+
     /** Klont page-nav aus aside in Nav-Drawer (Single Source of Truth für „Auf dieser Seite“). */
     function initPageNavClone() {
         var source = document.getElementById('page-nav-source');
@@ -468,11 +478,15 @@
         function goToResult(id) {
             var target = document.getElementById(id);
             if (target) {
-                target.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
-                target.setAttribute('tabindex', '-1');
-                target.focus({ preventScroll: true });
+                closeSearch();
+                window.requestAnimationFrame(function () {
+                    scrollToBelowNav(target);
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                });
+            } else {
+                closeSearch();
             }
-            closeSearch();
         }
 
         function openSearch() {
@@ -632,7 +646,9 @@
             });
         }
 
-        /** Handles all nav hash links (brand, main nav, page-nav): close menu first, then scroll. */
+        /** Handles all nav hash links (brand, main nav, page-nav): close menu first, then scroll.
+         * Uses explicit scroll position so target lands below nav (scroll-margin + scrollIntoView
+         * can show the previous section when sections are adjacent, e.g. Galerie before Preisliste). */
         function handleNavHashClick(e) {
             var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
             if (!a || !nav.contains(a)) return;
@@ -645,7 +661,7 @@
                 closeMenu();
                 window.requestAnimationFrame(function () {
                     window.requestAnimationFrame(function () {
-                        target.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+                        scrollToBelowNav(target);
                         history.replaceState(null, '', href);
                     });
                 });
