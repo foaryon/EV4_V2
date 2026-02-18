@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "EV4 Referenz",
+    "description": "Technische Daten, Statistiken, Tests und Normen aus vertrauenswürdigen Quellen (A/B). Kein Marketing.",
+    "sources": ["KIA Handbuch", "ADAC", "Global NCAP", "Euro NCAP", "UNECE", "evspecifications", "KIA Preisliste"]
+  },
+  "stats": {
+    "specs": [
+      {"label": "Reichweite WLTP", "value": "594–625 km", "unit": "", "source": "KIA, ADAC", "note": "17\" vs 19\" Felgen"},
+      {"label": "Verbrauch WLTP", "value": "14,6–15,5", "unit": "kWh/100 km", "source": "KIA Preisliste"},
+      {"label": "DC-Laden 10–80%", "value": "29–31", "unit": "min", "source": "KIA EU Presales"},
+      {"label": "DC max. Leistung", "value": "127", "unit": "kW", "source": "evspecifications"},
+      {"label": "Motor", "value": "150", "unit": "kW (204 PS)", "source": "ADAC"},
+      {"label": "Drehmoment", "value": "283", "unit": "Nm", "source": "evspecifications"},
+      {"label": "0–100 km/h", "value": "7,7", "unit": "s", "source": "ADAC"},
+      {"label": "Vmax", "value": "170", "unit": "km/h", "source": "evspecifications"},
+      {"label": "Batterie nominal", "value": "81,4", "unit": "kWh", "source": "KIA"},
+      {"label": "Garantie Batterie", "value": "8", "unit": "Jahre", "source": "KIA, meinauto"}
+    ],
+    "safety": [
+      {"label": "Latin NCAP", "value": "5 Sterne", "source": "Global NCAP"},
+      {"label": "Adult Occupant", "value": "82,86", "unit": "%", "source": "Latin NCAP"},
+      {"label": "Child Occupant", "value": "91,84", "unit": "%", "source": "Latin NCAP"},
+      {"label": "Safety Assist", "value": "98,26", "unit": "%", "source": "Latin NCAP"},
+      {"label": "VRU (Fußgänger/Rad)", "value": "69,23", "unit": "%", "source": "Latin NCAP"}
+    ],
+    "regulations": [
+      {"id": "R154", "name": "UNECE R154", "desc": "WLTP – Worldwide Harmonized Light Vehicles Test", "url": "https://unece.org/transport/documents/2021/02/standards/un-regulation-no-154-worldwide-harmonized-light-vehicles-test"},
+      {"id": "R100", "name": "UNECE R100", "desc": "Elektrofahrzeuge – REESS (Batterie), elektrische Sicherheit", "url": "https://unece.org"},
+      {"id": "R152", "name": "UNECE R152", "desc": "AEBS – Automatische Notbremssysteme (FCA/AEB)", "url": "https://unece.org"},
+      {"id": "R158", "name": "UNECE R158", "desc": "Rückfahrkamera – EU-Pflicht ab 2024", "url": "https://unece.org"},
+      {"id": "R79", "name": "UNECE R79", "desc": "Lenkanlagen – Spurhalteassistenz (LKA)", "url": "https://unece.org"}
+    ],
+    "winterRange": {
+      "note": "Typische Reichweitenverluste bei Kälte (DOE, Consumer Reports, Energysage)",
+      "ranges": [
+        {"temp": "20°C", "loss": "0%", "source": "Referenz"},
+        {"temp": "0°C", "loss": "20–30%", "source": "B/C"},
+        {"temp": "-10°C", "loss": "30–45%", "source": "B/C"},
+        {"temp": "-20°C", "loss": "40–50%", "source": "B/C"}
+      ]
+    },
+    "comparison": [
+      {"model": "KIA EV4 Earth 81 kWh", "range": "625", "consumption": "14,6", "price": "45.540", "source": "KIA"},
+      {"model": "VW ID.3 Pro S", "range": "559", "consumption": "15,4", "price": "~46.000", "source": "ADAC"},
+      {"model": "Cupra Born 77 kWh", "range": "511", "consumption": "16,2", "price": "~45.000", "source": "ADAC"},
+      {"model": "MG4 Long Range", "range": "520", "consumption": "16,5", "price": "~38.000", "source": "ADAC"}
+    ],
+    "faq": [
+      {"q": "Wie oft 100% laden?", "a": "Gelegentlich (1×/Monat) für BMS-Kalibrierung. Täglich 80% empfohlen (Handbuch)."},
+      {"q": "i-PEDAL bei Regen?", "a": "AUS. Handbuch: „Avoid using i-Pedal on slippery roads altogether.“"},
+      {"q": "SNOW-Modus Geschwindigkeit?", "a": "Bis 170 km/h möglich; optimal unter 60 km/h bei Schnee/Glätte."},
+      {"q": "Batteriekonditionierung nötig?", "a": "Bei DC-Laden unter 0°C: ja. Ohne Vorwärmung deutlich langsamer (20–40 kW statt 127 kW)."},
+      {"q": "Rettungskarte?", "a": "KIA Rettungsblätter: kia.com/de/service/rettungsblaetter – für Einsatzkräfte."}
+    ]
+  }
+}
