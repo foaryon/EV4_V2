@@ -54,7 +54,7 @@ async function run() {
   const pages = ['index.html', 'changelog.html', '404.html'];
 
   console.log('Responsive Design Stress Test');
-  console.log('Checks: horizontal overflow, vertical clipping, JS errors\n' + '='.repeat(60));
+  console.log('Full HTML load (waitUntil: load) – overflow, JS errors\n' + '='.repeat(60));
 
   let hOverflow = 0;
   let vClip = 0;
@@ -68,28 +68,36 @@ async function run() {
       jsErrors.length = 0;
       try {
         await page.setViewportSize({ width: vp.width, height: vp.height });
-        await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        await page.goto(pageUrl, { waitUntil: 'load', timeout: 20000 });
 
-        const result = await page.evaluate(() => {
+        const result = await page.evaluate((isIndex) => {
           const html = document.documentElement;
           const body = document.body;
           const hOverflow = Math.max(html.scrollWidth, body.scrollWidth) > html.clientWidth;
           const vClip = body.scrollHeight > 0 && html.clientHeight > 0 && body.scrollHeight <= html.clientHeight && body.scrollHeight < 100;
-          const overflowY = getComputedStyle(body).overflowY;
+          let loadOk = true;
+          if (isIndex) {
+            const required = ['main', 'toc', 'preisliste', 'galerie', 'nav'];
+            loadOk = required.every((id) => (id === 'nav' ? document.querySelector('nav') : document.getElementById(id)));
+          }
           return {
             hOverflow,
+            loadOk,
             scrollWidth: Math.max(html.scrollWidth, body.scrollWidth),
             clientWidth: html.clientWidth,
             scrollHeight: body.scrollHeight,
             clientHeight: html.clientHeight,
-            overflowY,
           };
-        });
+        }, pageName === 'index.html');
 
         const issues = [];
         if (result.hOverflow) {
           issues.push('H_OVERFLOW');
           hOverflow++;
+        }
+        if (!result.loadOk) {
+          issues.push('LOAD');
+          loadErrors++;
         }
         if (jsErrors.length) {
           issues.push('JS_ERR');

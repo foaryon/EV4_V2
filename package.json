@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "build:css": "sass scss/main.scss css/main.css --style expanded",
-    "watch:css": "sass scss/main.scss css/main.css --watch --style expanded"
+    "watch:css": "sass scss/main.scss css/main.css --watch --style expanded",
+    "test": "node test-chain.js",
+    "test:responsive": "node test-responsive.js",
+    "test:anchors": "node test-nav-anchors.js"
   },
   "devDependencies": {
     "sass": "^1.69.0"
