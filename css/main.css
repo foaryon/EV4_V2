@@ -928,7 +928,8 @@ main.container,
     border-color: #ffffff;
 }
 
-/* Section structure: content vs. detail – scroll-margin für Anker-Sprünge unter Sticky-Nav */
+/* Section structure: scroll-padding-top on html handles nav offset for anchor scroll.
+   No scroll-margin-top – it shows the previous section when sections are adjacent. */
 .content-section,
 .summary-section,
 .quellen-section,
@@ -936,9 +937,7 @@ main.container,
 .galerie-section,
 .preisliste-section,
 .toc,
-.detail-section { scroll-margin-top: var(--scroll-padding-top); min-width: 0; }
-/* Alle Ankerziele in main: korrekte Position unter Sticky-Nav */
-main [id] { scroll-margin-top: var(--scroll-padding-top); }
+.detail-section { min-width: 0; }
 
 /* Images – 100% fluid, no overflow */
 .layout-root img,
