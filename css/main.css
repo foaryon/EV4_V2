@@ -940,13 +940,15 @@ main.container,
 /* Alle Ankerziele in main: korrekte Position unter Sticky-Nav */
 main [id] { scroll-margin-top: var(--scroll-padding-top); }
 
-/* Images – bulletproof responsive on all devices */
+/* Images – 100% fluid, no overflow */
 .layout-root img,
 main img,
 section img {
     max-width: 100%;
+    width: auto;
     height: auto;
     object-fit: contain;
+    display: block;
     vertical-align: middle;
 }
 
@@ -1446,6 +1448,7 @@ section h4 {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
+    min-width: 0;
 }
 .bible-spec-value {
     font-family: var(--font-display);
@@ -1869,6 +1872,7 @@ main code,
     transition: box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
     display: flex;
     flex-direction: column;
+    min-width: 0;
     min-height: 0;
 }
 .galerie-item:hover {
@@ -1894,6 +1898,7 @@ main code,
     outline-offset: 2px;
     cursor: pointer;
     position: relative;
+    min-width: 0;
 }
 .galerie-link::after {
     content: '';
@@ -1938,6 +1943,7 @@ main code,
 /* High-Res: Quellen 1980×1114 / 1920×1080 (scripts/download_ev4_hatchback_images.ps1). Schärfere Darstellung beim Verkleinern. */
 .galerie-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -2064,9 +2070,8 @@ main code,
 }
 /* Lightbox: Vollauflösung (4K) bis Viewport-Grenze; 100dvh für Mobile/Notch */
 .lightbox-overlay .lightbox-img {
-    max-width: 100%;
-    max-height: calc(100vh - 10rem);
-    max-height: calc(100dvh - 10rem);
+    max-width: min(100%, 100vw - var(--space-4));
+    max-height: min(calc(100vh - 10rem), calc(100dvh - var(--space-8)));
     width: auto;
     height: auto;
     object-fit: contain;
@@ -2088,7 +2093,7 @@ main code,
     margin-top: 0.25rem;
 }
 
-/* Tables – 2026: premium, rounded. Horizontal scroll when table overflows; scrollbar ausgeblendet (Wix-Style). */
+/* Tables – 100% fluid, horizontal scroll when needed */
 .responsive-table-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
@@ -2098,6 +2103,7 @@ main code,
     box-shadow: var(--shadow-md);
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -2122,7 +2128,6 @@ table {
     border-collapse: collapse;
     min-width: 0;
     background: var(--surface);
-    table-layout: fixed;
 }
 
 /* Alle Tabellen: einheitliches Layout – feste Spaltenaufteilung, Wortumbruch, erste Spalte mit Abstand */
@@ -2130,6 +2135,7 @@ table {
 .responsive-table-wrapper th {
     word-wrap: break-word;
     overflow-wrap: break-word;
+    word-break: break-word;
     min-width: 0;
 }
 .responsive-table-wrapper td:first-child,
@@ -2367,7 +2373,8 @@ table {
 /* Tabellen: fluid Layout – Spalten flexibel, horizontales Scroll bei Bedarf */
 .responsive-table-wrapper table {
     table-layout: auto;
-    min-width: min(100%, 50vw);
+    width: 100%;
+    min-width: min(100%, 40ch);
 }
 @container main (min-width: 48rem) {
     .table-profile-checklist .col-setting,
