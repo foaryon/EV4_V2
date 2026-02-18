@@ -8,15 +8,21 @@
     const BACK_TO_TOP_THRESHOLD = 400;
     const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /** Scrolls to anchor; uses scroll-padding-top from CSS (no hardcoding). */
+    /** Scrolls to anchor; manual scroll so target top sits just below nav (measured). */
     function scrollToAnchor(id) {
         var target = document.getElementById(id);
         if (!target) return;
         history.replaceState(null, '', '#' + id);
-        var html = document.documentElement;
-        var padding = parseFloat(getComputedStyle(html).scrollPaddingTop) || 0;
-        var top = target.getBoundingClientRect().top + window.scrollY - padding;
-        window.scrollTo({ top: Math.max(0, top), behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+        function doScroll() {
+            var nav = document.querySelector('nav');
+            var offset = nav ? nav.offsetHeight : 0;
+            var rect = target.getBoundingClientRect();
+            var y = rect.top + window.scrollY - offset;
+            window.scrollTo({ top: Math.max(0, y), left: 0, behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+        }
+        requestAnimationFrame(function () {
+            requestAnimationFrame(doScroll);
+        });
     }
 
     /** Klont page-nav aus aside in Nav-Drawer (Single Source of Truth für „Auf dieser Seite“). */
@@ -604,7 +610,8 @@
             });
         }
 
-        /** Handles nav hash links: close menu, then native anchor scroll (scroll-padding-top on html). */
+        /** Handles nav hash links: close menu, wait for transition, then scroll. */
+        var MENU_TRANSITION_MS = 300;
         function handleNavHashClick(e) {
             var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
             if (!a || !nav.contains(a)) return;
@@ -613,12 +620,15 @@
             var id = href.slice(1);
             if (document.getElementById(id)) {
                 e.preventDefault();
+                var wasMenuOpen = nav.classList.contains('nav-menu-open');
                 closeMenu();
-                window.requestAnimationFrame(function () {
-                    window.requestAnimationFrame(function () {
-                        scrollToAnchor(id);
+                if (wasMenuOpen) {
+                    setTimeout(function () { scrollToAnchor(id); }, MENU_TRANSITION_MS);
+                } else {
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () { scrollToAnchor(id); });
                     });
-                });
+                }
             } else {
                 closeMenu();
             }
