@@ -9,7 +9,7 @@
     --container-gutter: clamp(0.5rem, 1vw + 0.75rem, 2.5rem);
     --section-padding: clamp(1.5rem, 2rem + 2.5vw, 5rem);
     --section-gap: clamp(1.5rem, 2rem + 2.5vw, 5rem);
-    --scroll-padding-top: clamp(5.5rem, 5rem + 8vw, 7rem);
+    --scroll-padding-top: calc(clamp(5.5rem, 5rem + 8vw, 7rem) + env(safe-area-inset-top, 0px));
     /* Fluid Gaps – einheitliche Skalierung für Grids/Flex */
     --fluid-gap-sm: clamp(0.5rem, 1vw, 0.75rem);
     --fluid-gap: clamp(0.75rem, 1.5vw, 1.25rem);

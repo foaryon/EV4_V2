@@ -632,11 +632,28 @@
             });
         }
 
-        menu.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
+        /** Handles all nav hash links (brand, main nav, page-nav): close menu first, then scroll. */
+        function handleNavHashClick(e) {
+            var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+            if (!a || !nav.contains(a)) return;
+            var href = (a.getAttribute('href') || '').trim();
+            if (!href || href.length <= 1) { closeMenu(); return; }
+            var id = href.slice(1);
+            var target = document.getElementById(id);
+            if (target) {
+                e.preventDefault();
                 closeMenu();
-            });
-        });
+                window.requestAnimationFrame(function () {
+                    window.requestAnimationFrame(function () {
+                        target.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+                        history.replaceState(null, '', href);
+                    });
+                });
+            } else {
+                closeMenu();
+            }
+        }
+        nav.addEventListener('click', handleNavHashClick);
 
         var mq = window.matchMedia('(min-width: 769px)');
         function onViewportChange(ev) {
