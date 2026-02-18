@@ -1,6 +1,6 @@
 # Prüfbericht: Regen- und Winter-Profil (Sicherheitsoptimierung)
 
-**Datum:** Januar 2026  
+**Stand:** Januar 2026  
 **Gegenstand:** Forensische Prüfung der umgesetzten Änderungen für maximale Sicherheit bei Regen und Schnee  
 **Referenz:** Forensische Analyse (Beleuchtung, FCA, Klima, SCC, Rekuperation)
 
@@ -27,7 +27,7 @@
 | 4 | Intelligente Reku | Manuell Level 1 | Manuell Level 1 (KEIN AUTO) | Manuell Level 1 | Manuell Level 1 (KEIN AUTO) | ✅ |
 | 5 | SCC Abstand | EIN, Abstand 4 (Maximum) | EIN, Abstand 4 (Maximum) | EIN, Abstand 4 (Maximum) | EIN, Abstand 4 (Maximum) | ✅ |
 | 6 | HDA | AUS | EIN (mit Vorsicht) | HDA AUS | HDA EIN (mit Vorsicht) | ✅ |
-| 9 | FCA | Kollisionswarnung: Früh | Kollisionswarnung: Früh | Regen/Winter: Früh | Regen/Winter: Früh | ✅ |
+| 9 | FCA | Warnzeit: Standard | Warnzeit: Standard | Regen/Winter: Standard | Regen/Winter: Standard | ✅ |
 | 10 | BCA | EIN (Warnung + Lenkeingriff) | EIN (Warnzeit: Früh) | – | – | ✅ |
 | 11 | Klima | ECO EIN, ECO AUS bei Beschlag | Scheibenheizung, Frischluft | ECO AUS bei Beschlag/hoher LF | Scheibenheizung, Frischluft | ✅ |
 | 12 | Beleuchtung | Nebelscheinwerfer, Fernlicht AUS | Nebelscheinwerfer, Fernlicht bei Schneefall AUS | Nebelscheinwerfer, Fernlicht AUS | Nebelscheinwerfer, Fernlicht bei Schneefall AUS | ✅ |
@@ -45,7 +45,7 @@
 |----------|-----|---------|
 | **Beleuchtung Regen:** Fernlicht → Nebelscheinwerfer, Fernlicht AUS | 18×3, Beleuchtung-Sektion | StVO, DEKRA |
 | **Beleuchtung Winter:** Fernlicht bei Schneefall AUS (Reflexion) | 18×3, Beleuchtung-Sektion | StVO, DEKRA |
-| **FCA:** Regen/Winter = Warnzeit Früh (profil-spezifisch) | FCA recommended-box, 18×3 | VALIDIERUNG |
+| **FCA:** Regen/Winter = Warnzeit Standard (profil-spezifisch) | FCA recommended-box, 18×3 | VALIDIERUNG |
 | **Klima Regen:** ECO AUS bei Beschlag/hoher Luftfeuchtigkeit | 18×3, Klima-Sektion | Sicht-Priorität |
 | **SCC:** Abstand 4 (Maximum) statt „+1 Stufe“ | 18×3, SCC-Sektion | Handbuch |
 | **Rekuperation Winter:** Level 0 bei Eis/Glätte | 18×3, Reku-Sektion | Handbuch SNOW 0–1 |
@@ -63,3 +63,7 @@
 ## 5. Ergebnis
 
 **Prüfung bestanden.** Alle empfohlenen Sicherheitsoptimierungen für Regen- und Winter-Profil sind penibel und präzise umgesetzt. 18×3-Tabelle, Detail-Sektionen und Validierungsdokumentation sind konsistent.
+
+---
+
+*Prüfbericht erstellt durch Abgleich mit StVO, DEKRA, KIA Handbuch und VALIDIERUNG_EMPFOHLENE_EINSTELLUNGEN_2026.md.*

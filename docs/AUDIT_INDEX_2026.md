@@ -1,6 +1,6 @@
 # Audit index.html – Stimmigkeit, Korrektheit, Integration, Formatierung
 
-**Datum:** Januar 2026  
+**Stand:** Januar 2026  
 **Geprüft:** index.html (KIA EV4 Systemanalyse, 3 Profile Standard/Regen/Winter)
 
 ---
@@ -61,3 +61,7 @@
 - **HTML:** Keine weiteren strukturellen oder inhaltlichen Fehler gefunden; Linter ohne Meldungen.
 - **Optional:** Preisliste-Tabellen bei Gelegenheit mit Zeilenumbruch nach `</thead>` für einheitliche Formatierung.
 - **Optional:** Einmaliges W3C-Validator-Check (z. B. Nu Html Checker) für strikte Konformität.
+
+---
+
+*Audit durchgeführt an index.html. Keine weiteren strukturellen oder inhaltlichen Fehler gefunden.*

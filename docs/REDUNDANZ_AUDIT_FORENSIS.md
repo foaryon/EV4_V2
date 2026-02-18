@@ -114,9 +114,14 @@ Die übrigen empfohlenen Schritte (alle recommended-boxes auf reine Verweise ums
 
 ---
 
-## 8. Nächste Schritte (optional)
+## 8. Weitere optionale Schritte
 
-1. **TOC:** Einen Eintrag „Empfohlene Einstellungen, Checkliste & Allgemeine Einstellungen“; zweiten TOC-Eintrag für #checkliste-uebersicht entfernen (Anker für Deep-Links beibehalten).
-2. **Helper-Text:** Doppelte Formulierung „unabhängig vom Profil“ in einem der beiden Blöcke entfernen.
-3. **Recommended-boxes:** Pilot in einem Detailabschnitt (z. B. Fahrmodus): Werte-Liste durch einen Satz „Wie in der <a href="#profile-checklist">Profil-Checkliste (18×3)</a>, Zeile 1.“ ersetzen; Rest nur Begründung. Bei positivem Nutzer-Feedback auf alle 18 Unterabschnitte ausrollen.
-4. **Profil-Karten:** Entweder Kerneinstellungen durch „Siehe Profil-Checkliste, Spalte Standard/Regen/Winter“ ersetzen oder klar als „Kurzfassung (Auszug)“ kennzeichnen.
+*(Punkte 1–2 wurden bereits in Abschnitt 7 umgesetzt.)*
+
+3. **Recommended-boxes:** Pilot umgesetzt. Bei positivem Nutzer-Feedback auf alle 18 Unterabschnitte ausrollen: Werte-Liste durch Verweis auf Profil-Checkliste ersetzen; Rest nur Begründung.
+4. **Profil-Karten:** Kerneinstellungen durch „Siehe Profil-Checkliste, Spalte Standard/Regen/Winter" ersetzen oder klar als „Kurzfassung (Auszug)" kennzeichnen.
+5. **„Auf dieser Seite":** Gemeinsame Quelle (Template/JS) für Nav und Aside nutzen, um strukturelle Redundanz zu reduzieren.
+
+---
+
+*Forensische Redundanz-Analyse. Stand Januar 2026.*

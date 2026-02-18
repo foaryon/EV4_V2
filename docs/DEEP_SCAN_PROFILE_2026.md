@@ -1,6 +1,6 @@
 # Deep Scan: Profil-Einstellungen vs. Realität (KIA EV4 2026)
 
-**Datum:** Februar 2026  
+**Stand:** Februar 2026  
 **Ziel:** Vollständige forensische Prüfung, dass alle Empfehlungen 100 % mit Handbuch, Spezifikationen und Ausstattung übereinstimmen.
 
 ---

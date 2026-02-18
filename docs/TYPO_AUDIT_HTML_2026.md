@@ -1,5 +1,6 @@
 # Typo-Audit HTML – Januar 2026
 
+**Stand:** Januar 2026  
 **Geprüft:** Alle HTML-Dateien im Projekt  
 **Ergebnis:** Gefundene Fehler korrigiert
 
@@ -44,3 +45,7 @@
 ## Empfehlung
 
 - `index-beta.html` und `draft/*.html` bei Bedarf mit gleichen Korrekturen abgleichen, falls sie als Vorlage dienen.
+
+---
+
+*Typo-Audit abgeschlossen. Alle gefundenen Fehler korrigiert.*

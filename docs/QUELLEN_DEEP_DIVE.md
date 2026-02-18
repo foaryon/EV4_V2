@@ -1,7 +1,10 @@
 # Weitere Quellen – KIA EV4 2026 EU (Deep Dive)
 
-Übersicht seriöser Quellen **über die offizielle Bedienungsanleitung hinaus**, für Klassifikation **A** (Handbuch-Primärquelle), **B** (offiziell/plattformbestätigt) oder **C** (heuristisch/Community).  
-**Hinweis:** Inhalte aus diesen Quellen müssen manuell geprüft und in eure Evidenzhierarchie eingeordnet werden. Kein automatisches Einspielen ohne Review.
+**Stand:** Januar 2026  
+**Gegenstand:** Übersicht seriöser Quellen **über die offizielle Bedienungsanleitung hinaus**  
+**Klassifikation:** **A** (Handbuch-Primärquelle), **B** (offiziell/plattformbestätigt), **C** (heuristisch/Community)
+
+**Hinweis:** Inhalte aus diesen Quellen müssen manuell geprüft und in die Evidenzhierarchie eingeordnet werden. Kein automatisches Einspielen ohne Review.
 
 ---
 
@@ -68,7 +71,7 @@
 
 ---
 
-## Validierung
+## 6. Validierung
 
 Die genannten URLs wurden stichprobenartig abgerufen und in einer separaten Validierungstabelle dokumentiert.
 
