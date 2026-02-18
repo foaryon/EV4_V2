@@ -16,9 +16,16 @@ const VIEWPORTS = [
   { name: 'iPhone SE', width: 375, height: 667 },
   { name: 'iPhone 14', width: 390, height: 844 },
   { name: 'Galaxy S20', width: 412, height: 915 },
+  { name: 'Galaxy Fold', width: 280, height: 653 },
+  { name: 'iPhone SE landscape', width: 568, height: 320 },
   { name: 'iPad Mini', width: 768, height: 1024 },
-  { name: 'Laptop', width: 1024, height: 768 },
-  { name: 'Desktop', width: 1440, height: 900 },
+  { name: 'iPad Pro 12.9', width: 1024, height: 1366 },
+  { name: 'Surface Duo', width: 540, height: 720 },
+  { name: 'Laptop 1024', width: 1024, height: 768 },
+  { name: 'Desktop 1440', width: 1440, height: 900 },
+  { name: 'Desktop 1920', width: 1920, height: 1080 },
+  { name: 'Narrow 240', width: 240, height: 320 },
+  { name: '4K', width: 3840, height: 2160 },
 ];
 
 async function run() {
@@ -37,9 +44,9 @@ async function run() {
 
   for (const vp of VIEWPORTS) {
     await page.setViewportSize({ width: vp.width, height: vp.height });
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
+    await page.goto(url, { waitUntil: 'load', timeout: 20000 });
 
-    const isMobile = vp.width < 768;
+    const isMobile = vp.width < 769;
     if (isMobile) {
       const trigger = await page.$('.nav-menu-trigger');
       if (trigger) {
