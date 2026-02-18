@@ -590,7 +590,23 @@
         }
 
         menu.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
+            a.addEventListener('click', function (e) {
+                var href = (a.getAttribute('href') || '').trim();
+                if (href && href.charAt(0) === '#' && href.length > 1) {
+                    var id = href.slice(1);
+                    var target = document.getElementById(id);
+                    if (target) {
+                        e.preventDefault();
+                        closeMenu();
+                        window.requestAnimationFrame(function () {
+                            window.requestAnimationFrame(function () {
+                                target.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+                                history.replaceState(null, '', href);
+                            });
+                        });
+                        return;
+                    }
+                }
                 closeMenu();
             });
         });
