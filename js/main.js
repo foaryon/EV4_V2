@@ -8,14 +8,15 @@
     const BACK_TO_TOP_THRESHOLD = 400;
     const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /** Scrolls element into view so its top sits below the sticky nav (avoids scroll-margin
-     * showing the previous section when sections are adjacent, e.g. Galerie before Preisliste). */
-    function scrollToBelowNav(target) {
-        var nav = document.querySelector('nav');
-        var navHeight = nav ? nav.offsetHeight : 0;
-        var rect = target.getBoundingClientRect();
-        var scrollTop = window.scrollY + rect.top - navHeight;
-        window.scrollTo({ top: Math.max(0, scrollTop), behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+    /** Scrolls to anchor; uses scroll-padding-top from CSS (no hardcoding). */
+    function scrollToAnchor(id) {
+        var target = document.getElementById(id);
+        if (!target) return;
+        history.replaceState(null, '', '#' + id);
+        var html = document.documentElement;
+        var padding = parseFloat(getComputedStyle(html).scrollPaddingTop) || 0;
+        var top = target.getBoundingClientRect().top + window.scrollY - padding;
+        window.scrollTo({ top: Math.max(0, top), behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
     }
 
     /** Klont page-nav aus aside in Nav-Drawer (Single Source of Truth für „Auf dieser Seite“). */
@@ -480,7 +481,7 @@
             if (target) {
                 closeSearch();
                 window.requestAnimationFrame(function () {
-                    scrollToBelowNav(target);
+                    scrollToAnchor(id);
                     target.setAttribute('tabindex', '-1');
                     target.focus({ preventScroll: true });
                 });
@@ -646,23 +647,19 @@
             });
         }
 
-        /** Handles all nav hash links (brand, main nav, page-nav): close menu first, then scroll.
-         * Uses explicit scroll position so target lands below nav (scroll-margin + scrollIntoView
-         * can show the previous section when sections are adjacent, e.g. Galerie before Preisliste). */
+        /** Handles nav hash links: close menu, then native anchor scroll (scroll-padding-top on html). */
         function handleNavHashClick(e) {
             var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
             if (!a || !nav.contains(a)) return;
             var href = (a.getAttribute('href') || '').trim();
             if (!href || href.length <= 1) { closeMenu(); return; }
             var id = href.slice(1);
-            var target = document.getElementById(id);
-            if (target) {
+            if (document.getElementById(id)) {
                 e.preventDefault();
                 closeMenu();
                 window.requestAnimationFrame(function () {
                     window.requestAnimationFrame(function () {
-                        scrollToBelowNav(target);
-                        history.replaceState(null, '', href);
+                        scrollToAnchor(id);
                     });
                 });
             } else {
